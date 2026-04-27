@@ -1,0 +1,50 @@
+# 🔹 Gradle
+.gradle/
+build/
+**/build/
+
+# 🔹 Local config (IMPORTANT)
+local.properties
+
+# 🔹 Android Studio
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# 🔹 OS files
+.DS_Store
+Thumbs.db
+
+# 🔹 Logs
+*.log
+
+# 🔹 Kotlin / Java
+*.class
+*.jar
+*.war
+*.ear
+
+# 🔹 Generated files
+captures/
+.externalNativeBuild/
+.cxx/
+
+# 🔹 Keystore (VERY IMPORTANT 🔐)
+*.jks
+*.keystore
+
+# 🔹 Google Services (if sensitive)
+google-services.json
+
+# 🔹 Build outputs
+outputs/
+apk/
+*.apk
+*.aab
+
+# 🔹 Compose / cache
+*.hprof
+
+# 🔹 NDK
+obj/

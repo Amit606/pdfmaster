@@ -53,51 +53,58 @@ fun SelectFilesScreen(
 
     Scaffold(
         containerColor = NavyDeep,
+
+        // 🔥 PREMIUM TOP BAR
         topBar = {
             TopAppBar(
                 title = {
-                    Text(
-                        text = "Select Files",
-                        style = MaterialTheme.typography.titleLarge,
-                        color = TextPrimary,
-                        fontWeight = FontWeight.Bold
-                    )
+                    Column {
+                        Text(
+                            text = "Select Files",
+                            style = MaterialTheme.typography.titleLarge,
+                            color = TextPrimary,
+                            fontWeight = FontWeight.Bold
+                        )
+                        Text(
+                            text = "Choose PDFs to $operationLabel",
+                            style = MaterialTheme.typography.labelSmall,
+                            color = TextSecondary
+                        )
+                    }
                 },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
-                        Icon(Icons.Default.ArrowBack, contentDescription = "Back", tint = TextPrimary)
+                        Icon(
+                            Icons.Default.ArrowBack,
+                            contentDescription = "Back",
+                            tint = TextPrimary
+                        )
                     }
-                },
-                actions = {
-
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = NavyMedium
                 )
             )
         },
+
+        // 🔥 BOTTOM ACTION BAR
         bottomBar = {
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .navigationBarsPadding()   // 👈 IMPORTANT
-
+                    .navigationBarsPadding()
                     .background(NavyMedium)
-                    .padding(horizontal = 16.dp, vertical = 12.dp)
+                    .padding(horizontal = 20.dp, vertical = 14.dp)
             ) {
+
                 if (selectedFiles.isNotEmpty()) {
                     Row(
                         modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
-                        Text(
-                            "Total Size:",
-                            style = MaterialTheme.typography.bodyMedium,
-                            color = TextSecondary
-                        )
+                        Text("Total Size", color = TextSecondary)
                         Text(
                             fileSizeFormatted(viewModel.totalSelectedSize),
-                            style = MaterialTheme.typography.bodyMedium,
                             color = TextPrimary,
                             fontWeight = FontWeight.SemiBold
                         )
@@ -105,45 +112,52 @@ fun SelectFilesScreen(
                     Spacer(modifier = Modifier.height(12.dp))
                 }
 
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.spacedBy(12.dp)
-                ) {
+                Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+
+                    // 🔹 ADD FILES
                     OutlinedButton(
                         onClick = { launcher.launch(arrayOf("application/pdf")) },
-                        modifier = Modifier.weight(1f).height(48.dp),
-                        shape = RoundedCornerShape(24.dp),
+                        modifier = Modifier.weight(1f).height(50.dp),
+                        shape = RoundedCornerShape(26.dp),
                         border = BorderStroke(1.5.dp, BlueAccent),
                         colors = ButtonDefaults.outlinedButtonColors(contentColor = BlueAccent)
                     ) {
-                        Icon(Icons.Default.Add, contentDescription = null, modifier = Modifier.size(18.dp))
+                        Icon(Icons.Default.Add, contentDescription = null)
                         Spacer(modifier = Modifier.width(6.dp))
-                        Text("Add More", fontWeight = FontWeight.SemiBold)
+                        Text("Add Files", fontWeight = FontWeight.Medium)
                     }
 
+                    // 🔹 PRIMARY CTA
                     Button(
                         onClick = onNext,
                         enabled = selectedFiles.isNotEmpty(),
-                        modifier = Modifier.weight(1f).height(48.dp),
-                        shape = RoundedCornerShape(24.dp),
+                        modifier = Modifier.weight(1f).height(50.dp),
+                        shape = RoundedCornerShape(26.dp),
                         colors = ButtonDefaults.buttonColors(
                             containerColor = BlueAccent,
                             disabledContainerColor = DividerColor
                         )
                     ) {
                         Text(
-                            text = if (operation == PdfOperation.MERGE) "Merge Now" else "Next",
-                            fontWeight = FontWeight.Bold
+                            text = when (operation) {
+                                PdfOperation.MERGE -> "Merge Files"
+                                PdfOperation.COMPRESS -> "Compress Now"
+                                PdfOperation.CONVERT -> "Convert Now"
+                                PdfOperation.SPLIT -> "Continue"
+                            },
+                            fontWeight = FontWeight.SemiBold
                         )
-                        Spacer(modifier = Modifier.width(4.dp))
-                        Icon(Icons.Default.ArrowForward, contentDescription = null, modifier = Modifier.size(18.dp))
+                        Spacer(modifier = Modifier.width(6.dp))
+                        Icon(Icons.Default.ArrowForward, contentDescription = null)
                     }
                 }
             }
         }
     ) { padding ->
+
         if (selectedFiles.isEmpty()) {
-            // Empty state
+
+            // 🔥 EMPTY STATE (US STYLE)
             Box(
                 modifier = Modifier
                     .fillMaxSize()
@@ -151,53 +165,66 @@ fun SelectFilesScreen(
                 contentAlignment = Alignment.Center
             ) {
                 Column(
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                    verticalArrangement = Arrangement.spacedBy(16.dp)
+                    horizontalAlignment = Alignment.CenterHorizontally
                 ) {
+
                     Box(
                         modifier = Modifier
-                            .size(80.dp)
-                            .clip(CircleShape)
-                            .background(IconBgBlue),
+                            .size(96.dp)
+                            .clip(RoundedCornerShape(28.dp))
+                            .background(IconBgBlue.copy(alpha = 0.15f)),
                         contentAlignment = Alignment.Center
                     ) {
                         Icon(
                             Icons.Default.PictureAsPdf,
                             contentDescription = null,
                             tint = BlueAccent,
-                            modifier = Modifier.size(42.dp)
+                            modifier = Modifier.size(48.dp)
                         )
                     }
+
+                    Spacer(modifier = Modifier.height(20.dp))
+
                     Text(
-                        "No Files Selected",
+                        "No files selected",
                         style = MaterialTheme.typography.titleMedium,
-                        color = TextPrimary
+                        color = TextPrimary,
+                        fontWeight = FontWeight.SemiBold
                     )
+
+                    Spacer(modifier = Modifier.height(6.dp))
+
                     Text(
-                        "Tap below to select PDF files\nto $operationLabel",
+                        "Add PDF files to start your $operationLabel process.",
                         style = MaterialTheme.typography.bodyMedium,
                         color = TextSecondary,
                         textAlign = androidx.compose.ui.text.style.TextAlign.Center
                     )
+
+                    Spacer(modifier = Modifier.height(20.dp))
+
                     Button(
                         onClick = { launcher.launch(arrayOf("application/pdf")) },
-                        shape = RoundedCornerShape(24.dp),
+                        shape = RoundedCornerShape(26.dp),
                         colors = ButtonDefaults.buttonColors(containerColor = BlueAccent)
                     ) {
                         Icon(Icons.Default.Add, contentDescription = null)
                         Spacer(modifier = Modifier.width(8.dp))
-                        Text("Select PDF Files", fontWeight = FontWeight.Bold)
+                        Text("Select Files", fontWeight = FontWeight.SemiBold)
                     }
                 }
             }
+
         } else {
+
+            // 🔥 FILE LIST
             LazyColumn(
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(padding)
                     .padding(horizontal = 16.dp),
-                verticalArrangement = Arrangement.spacedBy(8.dp),
-                contentPadding = PaddingValues(vertical = 12.dp)
+                verticalArrangement = Arrangement.spacedBy(10.dp),
+                contentPadding = PaddingValues(vertical = 14.dp)
             ) {
                 items(selectedFiles) { file ->
                     PdfFileItem(
@@ -209,7 +236,6 @@ fun SelectFilesScreen(
         }
     }
 }
-
 @Composable
 fun PdfFileItem(
     file: PdfFile,
@@ -217,22 +243,22 @@ fun PdfFileItem(
 ) {
     Card(
         modifier = Modifier.fillMaxWidth(),
-        shape = RoundedCornerShape(12.dp),
+        shape = RoundedCornerShape(16.dp),
         colors = CardDefaults.cardColors(containerColor = SurfaceCard),
-        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
+        elevation = CardDefaults.cardElevation(defaultElevation = 3.dp)
     ) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(12.dp),
+                .padding(14.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            // PDF Icon
+
             Box(
                 modifier = Modifier
-                    .size(44.dp)
-                    .clip(RoundedCornerShape(8.dp))
-                    .background(IconBgOrange),
+                    .size(48.dp)
+                    .clip(RoundedCornerShape(12.dp))
+                    .background(IconBgOrange.copy(alpha = 0.15f)),
                 contentAlignment = Alignment.Center
             ) {
                 Icon(
@@ -247,18 +273,17 @@ fun PdfFileItem(
 
             Column(modifier = Modifier.weight(1f)) {
                 Text(
-                    text = file.name,
-                    style = MaterialTheme.typography.bodyMedium,
+                    file.name,
                     color = TextPrimary,
-                    fontWeight = FontWeight.SemiBold,
+                    fontWeight = FontWeight.Medium,
                     maxLines = 1,
                     overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis
                 )
-                Spacer(modifier = Modifier.height(2.dp))
+                Spacer(modifier = Modifier.height(4.dp))
                 Text(
-                    text = file.sizeFormatted,
-                    style = MaterialTheme.typography.bodySmall,
-                    color = TextSecondary
+                    file.sizeFormatted,
+                    color = TextSecondary,
+                    fontSize = 12.sp
                 )
             }
 

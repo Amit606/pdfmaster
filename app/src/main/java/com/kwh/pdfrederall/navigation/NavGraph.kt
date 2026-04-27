@@ -26,7 +26,7 @@ fun AllPdfNavGraph(navController: NavHostController) {
     val startDestination = if (isFirstLaunch(context)) {
         Routes.INTRO
     } else {
-        Routes.INTRO
+        Routes.HOME
     }
     NavHost(
         navController = navController,
