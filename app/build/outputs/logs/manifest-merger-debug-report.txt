@@ -1,0 +1,425 @@
+-- Merging decision tree log ---
+provider#androidx.core.content.FileProvider
+INJECTED from /Users/drivemetadata/anitigravity/PDFMasterTools/app/src/main/AndroidManifest.xml:29:9-39:20
+	android:grantUriPermissions
+		ADDED from /Users/drivemetadata/anitigravity/PDFMasterTools/app/src/main/AndroidManifest.xml:33:13-47
+	android:authorities
+		INJECTED from /Users/drivemetadata/anitigravity/PDFMasterTools/app/src/main/AndroidManifest.xml
+		ADDED from /Users/drivemetadata/anitigravity/PDFMasterTools/app/src/main/AndroidManifest.xml:31:13-60
+	android:exported
+		ADDED from /Users/drivemetadata/anitigravity/PDFMasterTools/app/src/main/AndroidManifest.xml:32:13-37
+	android:name
+		ADDED from /Users/drivemetadata/anitigravity/PDFMasterTools/app/src/main/AndroidManifest.xml:30:13-62
+manifest
+ADDED from /Users/drivemetadata/anitigravity/PDFMasterTools/app/src/main/AndroidManifest.xml:2:1-42:12
+INJECTED from /Users/drivemetadata/anitigravity/PDFMasterTools/app/src/main/AndroidManifest.xml:2:1-42:12
+INJECTED from /Users/drivemetadata/anitigravity/PDFMasterTools/app/src/main/AndroidManifest.xml:2:1-42:12
+INJECTED from /Users/drivemetadata/anitigravity/PDFMasterTools/app/src/main/AndroidManifest.xml:2:1-42:12
+MERGED from [com.google.accompanist:accompanist-permissions:0.32.0] /Users/drivemetadata/.gradle/caches/transforms-4/a3ec3fd863bad23ae7d3dbf4346c89e9/transformed/accompanist-permissions-0.32.0/AndroidManifest.xml:17:1-23:12
+MERGED from [androidx.compose.material3:material3:1.1.2] /Users/drivemetadata/.gradle/caches/transforms-4/c6a4303e01ae5d93cf1e400f529c4553/transformed/material3-1.1.2/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-runtime-android:2.9.8] /Users/drivemetadata/.gradle/caches/transforms-4/f0692616d16e4df725b6fafd37871cf0/transformed/navigation-runtime-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-common-android:2.9.8] /Users/drivemetadata/.gradle/caches/transforms-4/b972f629d9be49ceceaf8a30c247019b/transformed/navigation-common-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-compose-android:2.9.8] /Users/drivemetadata/.gradle/caches/transforms-4/c823a6fadd19aac168733eef786fde96/transformed/navigation-compose-release/AndroidManifest.xml:2:1-7:12
+MERGED from [io.coil-kt:coil-compose:2.5.0] /Users/drivemetadata/.gradle/caches/transforms-4/5d757c6c5c914cff8ff5856975061df7/transformed/coil-compose-2.5.0/AndroidManifest.xml:2:1-7:12
+MERGED from [io.coil-kt:coil-compose-base:2.5.0] /Users/drivemetadata/.gradle/caches/transforms-4/ab934b13e57c69bd0ec67090aef4e710/transformed/coil-compose-base-2.5.0/AndroidManifest.xml:2:1-7:12
+MERGED from [io.coil-kt:coil:2.5.0] /Users/drivemetadata/.gradle/caches/transforms-4/940328fa1c2dde90444275e496f81f3e/transformed/coil-2.5.0/AndroidManifest.xml:2:1-7:12
+MERGED from [io.coil-kt:coil-base:2.5.0] /Users/drivemetadata/.gradle/caches/transforms-4/86dda3c217881404198ecc3efe380d9c/transformed/coil-base-2.5.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-tooling-data-android:1.9.0] /Users/drivemetadata/.gradle/caches/transforms-4/0c50baae637c338d67013d3058ef30f1/transformed/ui-tooling-data/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.9.0] /Users/drivemetadata/.gradle/caches/transforms-4/b6669bb6442edb621a0d306fe499bf55/transformed/ui-tooling-preview/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.compose.ui:ui-tooling-android:1.9.0] /Users/drivemetadata/.gradle/caches/transforms-4/6efcb4ef3607810c8304e3147bf478e4/transformed/ui-tooling/AndroidManifest.xml:17:1-28:12
+MERGED from [androidx.compose.material:material-android:1.5.4] /Users/drivemetadata/.gradle/caches/transforms-4/3c324a69ef07ad7a8c52dc564323bd22/transformed/material-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.material:material-icons-core-android:1.5.4] /Users/drivemetadata/.gradle/caches/transforms-4/295797054ac56949bbc43b998375a395/transformed/material-icons-core-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.material:material-icons-extended-android:1.5.4] /Users/drivemetadata/.gradle/caches/transforms-4/acf4e40f0afacf034b9429de3dfc5b6e/transformed/material-icons-extended-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.material:material-ripple-android:1.5.4] /Users/drivemetadata/.gradle/caches/transforms-4/72960fbdd5dcefedb355b536f133c318/transformed/material-ripple-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.foundation:foundation-android:1.9.0] /Users/drivemetadata/.gradle/caches/transforms-4/4b1c833fb7c9a03f81e6b421fe0dbabb/transformed/foundation-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.9.0] /Users/drivemetadata/.gradle/caches/transforms-4/ecac03509a68ccadbecc77946ed8c93a/transformed/foundation-layout/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.animation:animation-core-android:1.9.0] /Users/drivemetadata/.gradle/caches/transforms-4/11caa966b24a8b3828a706e4a9d0dd82/transformed/animation-core/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.animation:animation-android:1.9.0] /Users/drivemetadata/.gradle/caches/transforms-4/89d6d450199d3834b7d545bbf3f2f424/transformed/animation/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-util-android:1.9.0] /Users/drivemetadata/.gradle/caches/transforms-4/788098d1b37a57c2dae63d0d2347768c/transformed/ui-util/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-unit-android:1.9.0] /Users/drivemetadata/.gradle/caches/transforms-4/c6cf8fcf68e3200f00bb4466671b1f46/transformed/ui-unit/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-graphics-android:1.9.0] /Users/drivemetadata/.gradle/caches/transforms-4/81d35e1c06e786e39f1e7b5e3449c1d5/transformed/ui-graphics-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-geometry-android:1.9.0] /Users/drivemetadata/.gradle/caches/transforms-4/e5342d0eddf776cc62dfd1f9c444687b/transformed/ui-geometry/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-text-android:1.9.0] /Users/drivemetadata/.gradle/caches/transforms-4/278725bacb50784ba404e2d4206c0fdc/transformed/ui-text/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.emoji2:emoji2:1.4.0] /Users/drivemetadata/.gradle/caches/transforms-4/b6dbe5dbd8bda95ff074f8d2efd5f066/transformed/emoji2-1.4.0/AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.lifecycle:lifecycle-process:2.10.0] /Users/drivemetadata/.gradle/caches/transforms-4/a981862a9e9ea7295961238c01da3642/transformed/lifecycle-process-2.10.0/AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.10.0] /Users/drivemetadata/.gradle/caches/transforms-4/ee2da36061dc9ec69b8e974a73b9de1c/transformed/lifecycle-livedata-core-2.10.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate-ktx:1.4.0] /Users/drivemetadata/.gradle/caches/transforms-4/1eb32bec06ded014de5e355e8657b034/transformed/savedstate-ktx-1.4.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.savedstate:savedstate-android:1.4.0] /Users/drivemetadata/.gradle/caches/transforms-4/b1cc17d6506f13b29dbaa140ee99bf1c/transformed/savedstate/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate-compose-android:1.4.0] /Users/drivemetadata/.gradle/caches/transforms-4/7cf91dc0791d3500062cc8223aea8da4/transformed/savedstate-compose/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.runtime:runtime-android:1.9.0] /Users/drivemetadata/.gradle/caches/transforms-4/181a031eadf173bf1eae32e245543541/transformed/runtime/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.runtime:runtime-annotation-android:1.9.0] /Users/drivemetadata/.gradle/caches/transforms-4/5e22e614e82eea7761b590df722a381a/transformed/runtime-annotation/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.9.0] /Users/drivemetadata/.gradle/caches/transforms-4/556376168f5249e114598be928baab4e/transformed/runtime-saveable/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.10.0] /Users/drivemetadata/.gradle/caches/transforms-4/b967e41750a9189c0222b1b000e69e2c/transformed/lifecycle-runtime-compose/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.10.0] /Users/drivemetadata/.gradle/caches/transforms-4/3588d43ebdcda7cfa0ee504f8a506427/transformed/lifecycle-viewmodel-savedstate/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.10.0] /Users/drivemetadata/.gradle/caches/transforms-4/5d994f277c7bae7e34b98a0b99225ef2/transformed/lifecycle-runtime-ktx/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.appcompat:appcompat-resources:1.6.1] /Users/drivemetadata/.gradle/caches/transforms-4/f452b64fcc74fc501a33769104189b27/transformed/appcompat-resources-1.6.1/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.autofill:autofill:1.0.0] /Users/drivemetadata/.gradle/caches/transforms-4/bca6a6ceb7c3a7034af0de84dcd61821/transformed/autofill-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/drivemetadata/.gradle/caches/transforms-4/53648d284c9a00ec6b8408c560847ae3/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/drivemetadata/.gradle/caches/transforms-4/eb8d9a200937aea9e1f9c5af013152ca/transformed/vectordrawable-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] /Users/drivemetadata/.gradle/caches/transforms-4/ffcc8bee27500155f15a2c5be7145e01/transformed/customview-poolingcontainer-1.0.0/AndroidManifest.xml:17:1-23:12
+MERGED from [androidx.core:core-ktx:1.15.0] /Users/drivemetadata/.gradle/caches/transforms-4/c6cab3495a4f68382359b9dccfa53d32/transformed/core-ktx-1.15.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.graphics:graphics-path:1.0.1] /Users/drivemetadata/.gradle/caches/transforms-4/7a8c4af4209fc453adab76c8a1edde00/transformed/graphics-path-1.0.1/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.core:core:1.15.0] /Users/drivemetadata/.gradle/caches/transforms-4/ccfe0232209faeee8913f6084927a819/transformed/core-1.15.0/AndroidManifest.xml:17:1-30:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.10.0] /Users/drivemetadata/.gradle/caches/transforms-4/95ce0e4bfbcc84b21352f1334c22e65f/transformed/lifecycle-runtime/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.10.0] /Users/drivemetadata/.gradle/caches/transforms-4/4242fb3663b828e71c1db826cd56352c/transformed/lifecycle-viewmodel/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.10.0] /Users/drivemetadata/.gradle/caches/transforms-4/9f985188da13124af9684411b1fbd7ce/transformed/lifecycle-viewmodel-ktx-2.10.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose-android:2.10.0] /Users/drivemetadata/.gradle/caches/transforms-4/23cf932809e7123fc24f368ef3f33438/transformed/lifecycle-viewmodel-compose/AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.accompanist:accompanist-drawablepainter:0.32.0] /Users/drivemetadata/.gradle/caches/transforms-4/36a4bd700a97e0b002e57d19ea7afc6e/transformed/accompanist-drawablepainter-0.32.0/AndroidManifest.xml:17:1-23:12
+MERGED from [androidx.compose.ui:ui-android:1.9.0] /Users/drivemetadata/.gradle/caches/transforms-4/3abb0aa0fa7f60995de46c5ffe20bf23/transformed/ui-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-test-manifest:1.9.0] /Users/drivemetadata/.gradle/caches/transforms-4/6ecb3bf4d4e911471a4c03e09bca2592/transformed/ui-test-manifest-1.9.0/AndroidManifest.xml:17:1-29:12
+MERGED from [androidx.activity:activity:1.8.0] /Users/drivemetadata/.gradle/caches/transforms-4/e655b62ddf207c980fa4cfd45b5356c4/transformed/activity-1.8.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.activity:activity-ktx:1.8.0] /Users/drivemetadata/.gradle/caches/transforms-4/7323cdc933e44bdf53495a9de3f98433/transformed/activity-ktx-1.8.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.activity:activity-compose:1.8.0] /Users/drivemetadata/.gradle/caches/transforms-4/5a8915338207445279ad856bf25312b5/transformed/activity-compose-1.8.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.datastore:datastore-preferences:1.0.0] /Users/drivemetadata/.gradle/caches/transforms-4/53fa4a9026ef8e2367e03f5238c7f649/transformed/datastore-preferences-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.datastore:datastore:1.0.0] /Users/drivemetadata/.gradle/caches/transforms-4/7fb31c42610e89182e6d9c1e68f8e0c9/transformed/datastore-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [io.github.aakira:napier-android-debug:1.4.1] /Users/drivemetadata/.gradle/caches/transforms-4/0633d0b2fa3fbda991753bec04c2e69d/transformed/napier-debug/AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.exifinterface:exifinterface:1.3.6] /Users/drivemetadata/.gradle/caches/transforms-4/99864f02a1128a2b57ba2bda889a6e06/transformed/exifinterface-1.3.6/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/drivemetadata/.gradle/caches/transforms-4/9eb380073895536fded5545c440dacd8/transformed/profileinstaller-1.4.0/AndroidManifest.xml:17:1-55:12
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /Users/drivemetadata/.gradle/caches/transforms-4/f906145cc371c418f09487d0df32515c/transformed/core-runtime-2.2.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/drivemetadata/.gradle/caches/transforms-4/1cc84eb9b10a83898ebb6ee790b03fdb/transformed/startup-runtime-1.1.1/AndroidManifest.xml:17:1-33:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/drivemetadata/.gradle/caches/transforms-4/6ad1d39661e14e61f1d14a04d98ed861/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.tracing:tracing:1.2.0] /Users/drivemetadata/.gradle/caches/transforms-4/626d0a6b22f1a9fdd353bd107dd3c8b0/transformed/tracing-1.2.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/drivemetadata/.gradle/caches/transforms-4/5c7be22d926e1af09de7cba525117d6a/transformed/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.annotation:annotation-experimental:1.4.1] /Users/drivemetadata/.gradle/caches/transforms-4/981cd2acfc5bb4f9b77ba5c3d01d6689/transformed/annotation-experimental-1.4.1/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.core:core-viewtree:1.0.0] /Users/drivemetadata/.gradle/caches/transforms-4/10f763a1be63826e6d064c38ad76aab7/transformed/core-viewtree-1.0.0/AndroidManifest.xml:2:1-7:12
+	package
+		INJECTED from /Users/drivemetadata/anitigravity/PDFMasterTools/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/drivemetadata/anitigravity/PDFMasterTools/app/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /Users/drivemetadata/anitigravity/PDFMasterTools/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/drivemetadata/anitigravity/PDFMasterTools/app/src/main/AndroidManifest.xml:2:11-69
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from /Users/drivemetadata/anitigravity/PDFMasterTools/app/src/main/AndroidManifest.xml:4:5-107
+	android:maxSdkVersion
+		ADDED from /Users/drivemetadata/anitigravity/PDFMasterTools/app/src/main/AndroidManifest.xml:4:78-104
+	android:name
+		ADDED from /Users/drivemetadata/anitigravity/PDFMasterTools/app/src/main/AndroidManifest.xml:4:22-77
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from /Users/drivemetadata/anitigravity/PDFMasterTools/app/src/main/AndroidManifest.xml:5:5-108
+	android:maxSdkVersion
+		ADDED from /Users/drivemetadata/anitigravity/PDFMasterTools/app/src/main/AndroidManifest.xml:5:79-105
+	android:name
+		ADDED from /Users/drivemetadata/anitigravity/PDFMasterTools/app/src/main/AndroidManifest.xml:5:22-78
+uses-permission#android.permission.READ_MEDIA_IMAGES
+ADDED from /Users/drivemetadata/anitigravity/PDFMasterTools/app/src/main/AndroidManifest.xml:6:5-76
+	android:name
+		ADDED from /Users/drivemetadata/anitigravity/PDFMasterTools/app/src/main/AndroidManifest.xml:6:22-73
+uses-permission#android.permission.READ_MEDIA_DOCUMENTS
+ADDED from /Users/drivemetadata/anitigravity/PDFMasterTools/app/src/main/AndroidManifest.xml:7:5-79
+	android:name
+		ADDED from /Users/drivemetadata/anitigravity/PDFMasterTools/app/src/main/AndroidManifest.xml:7:22-76
+uses-permission#android.permission.INTERNET
+ADDED from /Users/drivemetadata/anitigravity/PDFMasterTools/app/src/main/AndroidManifest.xml:8:5-67
+	android:name
+		ADDED from /Users/drivemetadata/anitigravity/PDFMasterTools/app/src/main/AndroidManifest.xml:8:22-64
+application
+ADDED from /Users/drivemetadata/anitigravity/PDFMasterTools/app/src/main/AndroidManifest.xml:10:5-40:19
+INJECTED from /Users/drivemetadata/anitigravity/PDFMasterTools/app/src/main/AndroidManifest.xml:10:5-40:19
+MERGED from [androidx.compose.ui:ui-tooling-android:1.9.0] /Users/drivemetadata/.gradle/caches/transforms-4/6efcb4ef3607810c8304e3147bf478e4/transformed/ui-tooling/AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.compose.ui:ui-tooling-android:1.9.0] /Users/drivemetadata/.gradle/caches/transforms-4/6efcb4ef3607810c8304e3147bf478e4/transformed/ui-tooling/AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.emoji2:emoji2:1.4.0] /Users/drivemetadata/.gradle/caches/transforms-4/b6dbe5dbd8bda95ff074f8d2efd5f066/transformed/emoji2-1.4.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.emoji2:emoji2:1.4.0] /Users/drivemetadata/.gradle/caches/transforms-4/b6dbe5dbd8bda95ff074f8d2efd5f066/transformed/emoji2-1.4.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.10.0] /Users/drivemetadata/.gradle/caches/transforms-4/a981862a9e9ea7295961238c01da3642/transformed/lifecycle-process-2.10.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.10.0] /Users/drivemetadata/.gradle/caches/transforms-4/a981862a9e9ea7295961238c01da3642/transformed/lifecycle-process-2.10.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.core:core:1.15.0] /Users/drivemetadata/.gradle/caches/transforms-4/ccfe0232209faeee8913f6084927a819/transformed/core-1.15.0/AndroidManifest.xml:28:5-89
+MERGED from [androidx.core:core:1.15.0] /Users/drivemetadata/.gradle/caches/transforms-4/ccfe0232209faeee8913f6084927a819/transformed/core-1.15.0/AndroidManifest.xml:28:5-89
+MERGED from [androidx.compose.ui:ui-test-manifest:1.9.0] /Users/drivemetadata/.gradle/caches/transforms-4/6ecb3bf4d4e911471a4c03e09bca2592/transformed/ui-test-manifest-1.9.0/AndroidManifest.xml:22:5-27:19
+MERGED from [androidx.compose.ui:ui-test-manifest:1.9.0] /Users/drivemetadata/.gradle/caches/transforms-4/6ecb3bf4d4e911471a4c03e09bca2592/transformed/ui-test-manifest-1.9.0/AndroidManifest.xml:22:5-27:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/drivemetadata/.gradle/caches/transforms-4/9eb380073895536fded5545c440dacd8/transformed/profileinstaller-1.4.0/AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/drivemetadata/.gradle/caches/transforms-4/9eb380073895536fded5545c440dacd8/transformed/profileinstaller-1.4.0/AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/drivemetadata/.gradle/caches/transforms-4/1cc84eb9b10a83898ebb6ee790b03fdb/transformed/startup-runtime-1.1.1/AndroidManifest.xml:25:5-31:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/drivemetadata/.gradle/caches/transforms-4/1cc84eb9b10a83898ebb6ee790b03fdb/transformed/startup-runtime-1.1.1/AndroidManifest.xml:25:5-31:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/drivemetadata/.gradle/caches/transforms-4/6ad1d39661e14e61f1d14a04d98ed861/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/drivemetadata/.gradle/caches/transforms-4/6ad1d39661e14e61f1d14a04d98ed861/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+	android:extractNativeLibs
+		INJECTED from /Users/drivemetadata/anitigravity/PDFMasterTools/app/src/main/AndroidManifest.xml
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.15.0] /Users/drivemetadata/.gradle/caches/transforms-4/ccfe0232209faeee8913f6084927a819/transformed/core-1.15.0/AndroidManifest.xml:28:18-86
+	android:supportsRtl
+		ADDED from /Users/drivemetadata/anitigravity/PDFMasterTools/app/src/main/AndroidManifest.xml:16:9-35
+	android:label
+		ADDED from /Users/drivemetadata/anitigravity/PDFMasterTools/app/src/main/AndroidManifest.xml:14:9-39
+	android:roundIcon
+		ADDED from /Users/drivemetadata/anitigravity/PDFMasterTools/app/src/main/AndroidManifest.xml:15:9-50
+	android:icon
+		ADDED from /Users/drivemetadata/anitigravity/PDFMasterTools/app/src/main/AndroidManifest.xml:13:9-45
+	android:allowBackup
+		ADDED from /Users/drivemetadata/anitigravity/PDFMasterTools/app/src/main/AndroidManifest.xml:12:9-35
+	android:theme
+		ADDED from /Users/drivemetadata/anitigravity/PDFMasterTools/app/src/main/AndroidManifest.xml:17:9-50
+	android:name
+		ADDED from /Users/drivemetadata/anitigravity/PDFMasterTools/app/src/main/AndroidManifest.xml:11:9-48
+activity#com.kwh.pdfrederall.MainActivity
+ADDED from /Users/drivemetadata/anitigravity/PDFMasterTools/app/src/main/AndroidManifest.xml:18:9-27:20
+	android:windowSoftInputMode
+		ADDED from /Users/drivemetadata/anitigravity/PDFMasterTools/app/src/main/AndroidManifest.xml:21:13-55
+	android:exported
+		ADDED from /Users/drivemetadata/anitigravity/PDFMasterTools/app/src/main/AndroidManifest.xml:20:13-36
+	android:theme
+		ADDED from /Users/drivemetadata/anitigravity/PDFMasterTools/app/src/main/AndroidManifest.xml:22:13-54
+	android:name
+		ADDED from /Users/drivemetadata/anitigravity/PDFMasterTools/app/src/main/AndroidManifest.xml:19:13-41
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /Users/drivemetadata/anitigravity/PDFMasterTools/app/src/main/AndroidManifest.xml:23:13-26:29
+action#android.intent.action.MAIN
+ADDED from /Users/drivemetadata/anitigravity/PDFMasterTools/app/src/main/AndroidManifest.xml:24:17-69
+	android:name
+		ADDED from /Users/drivemetadata/anitigravity/PDFMasterTools/app/src/main/AndroidManifest.xml:24:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /Users/drivemetadata/anitigravity/PDFMasterTools/app/src/main/AndroidManifest.xml:25:17-77
+	android:name
+		ADDED from /Users/drivemetadata/anitigravity/PDFMasterTools/app/src/main/AndroidManifest.xml:25:27-74
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from /Users/drivemetadata/anitigravity/PDFMasterTools/app/src/main/AndroidManifest.xml:35:13-37:54
+	android:resource
+		ADDED from /Users/drivemetadata/anitigravity/PDFMasterTools/app/src/main/AndroidManifest.xml:37:17-51
+	android:name
+		ADDED from /Users/drivemetadata/anitigravity/PDFMasterTools/app/src/main/AndroidManifest.xml:36:17-67
+uses-sdk
+INJECTED from /Users/drivemetadata/anitigravity/PDFMasterTools/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/drivemetadata/anitigravity/PDFMasterTools/app/src/main/AndroidManifest.xml
+INJECTED from /Users/drivemetadata/anitigravity/PDFMasterTools/app/src/main/AndroidManifest.xml
+MERGED from [com.google.accompanist:accompanist-permissions:0.32.0] /Users/drivemetadata/.gradle/caches/transforms-4/a3ec3fd863bad23ae7d3dbf4346c89e9/transformed/accompanist-permissions-0.32.0/AndroidManifest.xml:21:5-44
+MERGED from [com.google.accompanist:accompanist-permissions:0.32.0] /Users/drivemetadata/.gradle/caches/transforms-4/a3ec3fd863bad23ae7d3dbf4346c89e9/transformed/accompanist-permissions-0.32.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.compose.material3:material3:1.1.2] /Users/drivemetadata/.gradle/caches/transforms-4/c6a4303e01ae5d93cf1e400f529c4553/transformed/material3-1.1.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.material3:material3:1.1.2] /Users/drivemetadata/.gradle/caches/transforms-4/c6a4303e01ae5d93cf1e400f529c4553/transformed/material3-1.1.2/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-runtime-android:2.9.8] /Users/drivemetadata/.gradle/caches/transforms-4/f0692616d16e4df725b6fafd37871cf0/transformed/navigation-runtime-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-runtime-android:2.9.8] /Users/drivemetadata/.gradle/caches/transforms-4/f0692616d16e4df725b6fafd37871cf0/transformed/navigation-runtime-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-common-android:2.9.8] /Users/drivemetadata/.gradle/caches/transforms-4/b972f629d9be49ceceaf8a30c247019b/transformed/navigation-common-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-common-android:2.9.8] /Users/drivemetadata/.gradle/caches/transforms-4/b972f629d9be49ceceaf8a30c247019b/transformed/navigation-common-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-compose-android:2.9.8] /Users/drivemetadata/.gradle/caches/transforms-4/c823a6fadd19aac168733eef786fde96/transformed/navigation-compose-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-compose-android:2.9.8] /Users/drivemetadata/.gradle/caches/transforms-4/c823a6fadd19aac168733eef786fde96/transformed/navigation-compose-release/AndroidManifest.xml:5:5-44
+MERGED from [io.coil-kt:coil-compose:2.5.0] /Users/drivemetadata/.gradle/caches/transforms-4/5d757c6c5c914cff8ff5856975061df7/transformed/coil-compose-2.5.0/AndroidManifest.xml:5:5-44
+MERGED from [io.coil-kt:coil-compose:2.5.0] /Users/drivemetadata/.gradle/caches/transforms-4/5d757c6c5c914cff8ff5856975061df7/transformed/coil-compose-2.5.0/AndroidManifest.xml:5:5-44
+MERGED from [io.coil-kt:coil-compose-base:2.5.0] /Users/drivemetadata/.gradle/caches/transforms-4/ab934b13e57c69bd0ec67090aef4e710/transformed/coil-compose-base-2.5.0/AndroidManifest.xml:5:5-44
+MERGED from [io.coil-kt:coil-compose-base:2.5.0] /Users/drivemetadata/.gradle/caches/transforms-4/ab934b13e57c69bd0ec67090aef4e710/transformed/coil-compose-base-2.5.0/AndroidManifest.xml:5:5-44
+MERGED from [io.coil-kt:coil:2.5.0] /Users/drivemetadata/.gradle/caches/transforms-4/940328fa1c2dde90444275e496f81f3e/transformed/coil-2.5.0/AndroidManifest.xml:5:5-44
+MERGED from [io.coil-kt:coil:2.5.0] /Users/drivemetadata/.gradle/caches/transforms-4/940328fa1c2dde90444275e496f81f3e/transformed/coil-2.5.0/AndroidManifest.xml:5:5-44
+MERGED from [io.coil-kt:coil-base:2.5.0] /Users/drivemetadata/.gradle/caches/transforms-4/86dda3c217881404198ecc3efe380d9c/transformed/coil-base-2.5.0/AndroidManifest.xml:5:5-44
+MERGED from [io.coil-kt:coil-base:2.5.0] /Users/drivemetadata/.gradle/caches/transforms-4/86dda3c217881404198ecc3efe380d9c/transformed/coil-base-2.5.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-data-android:1.9.0] /Users/drivemetadata/.gradle/caches/transforms-4/0c50baae637c338d67013d3058ef30f1/transformed/ui-tooling-data/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-data-android:1.9.0] /Users/drivemetadata/.gradle/caches/transforms-4/0c50baae637c338d67013d3058ef30f1/transformed/ui-tooling-data/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.9.0] /Users/drivemetadata/.gradle/caches/transforms-4/b6669bb6442edb621a0d306fe499bf55/transformed/ui-tooling-preview/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.9.0] /Users/drivemetadata/.gradle/caches/transforms-4/b6669bb6442edb621a0d306fe499bf55/transformed/ui-tooling-preview/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-tooling-android:1.9.0] /Users/drivemetadata/.gradle/caches/transforms-4/6efcb4ef3607810c8304e3147bf478e4/transformed/ui-tooling/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-tooling-android:1.9.0] /Users/drivemetadata/.gradle/caches/transforms-4/6efcb4ef3607810c8304e3147bf478e4/transformed/ui-tooling/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.material:material-android:1.5.4] /Users/drivemetadata/.gradle/caches/transforms-4/3c324a69ef07ad7a8c52dc564323bd22/transformed/material-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-android:1.5.4] /Users/drivemetadata/.gradle/caches/transforms-4/3c324a69ef07ad7a8c52dc564323bd22/transformed/material-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-icons-core-android:1.5.4] /Users/drivemetadata/.gradle/caches/transforms-4/295797054ac56949bbc43b998375a395/transformed/material-icons-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-icons-core-android:1.5.4] /Users/drivemetadata/.gradle/caches/transforms-4/295797054ac56949bbc43b998375a395/transformed/material-icons-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-icons-extended-android:1.5.4] /Users/drivemetadata/.gradle/caches/transforms-4/acf4e40f0afacf034b9429de3dfc5b6e/transformed/material-icons-extended-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-icons-extended-android:1.5.4] /Users/drivemetadata/.gradle/caches/transforms-4/acf4e40f0afacf034b9429de3dfc5b6e/transformed/material-icons-extended-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-ripple-android:1.5.4] /Users/drivemetadata/.gradle/caches/transforms-4/72960fbdd5dcefedb355b536f133c318/transformed/material-ripple-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-ripple-android:1.5.4] /Users/drivemetadata/.gradle/caches/transforms-4/72960fbdd5dcefedb355b536f133c318/transformed/material-ripple-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-android:1.9.0] /Users/drivemetadata/.gradle/caches/transforms-4/4b1c833fb7c9a03f81e6b421fe0dbabb/transformed/foundation-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-android:1.9.0] /Users/drivemetadata/.gradle/caches/transforms-4/4b1c833fb7c9a03f81e6b421fe0dbabb/transformed/foundation-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.9.0] /Users/drivemetadata/.gradle/caches/transforms-4/ecac03509a68ccadbecc77946ed8c93a/transformed/foundation-layout/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.9.0] /Users/drivemetadata/.gradle/caches/transforms-4/ecac03509a68ccadbecc77946ed8c93a/transformed/foundation-layout/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-core-android:1.9.0] /Users/drivemetadata/.gradle/caches/transforms-4/11caa966b24a8b3828a706e4a9d0dd82/transformed/animation-core/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-core-android:1.9.0] /Users/drivemetadata/.gradle/caches/transforms-4/11caa966b24a8b3828a706e4a9d0dd82/transformed/animation-core/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-android:1.9.0] /Users/drivemetadata/.gradle/caches/transforms-4/89d6d450199d3834b7d545bbf3f2f424/transformed/animation/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-android:1.9.0] /Users/drivemetadata/.gradle/caches/transforms-4/89d6d450199d3834b7d545bbf3f2f424/transformed/animation/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-util-android:1.9.0] /Users/drivemetadata/.gradle/caches/transforms-4/788098d1b37a57c2dae63d0d2347768c/transformed/ui-util/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-util-android:1.9.0] /Users/drivemetadata/.gradle/caches/transforms-4/788098d1b37a57c2dae63d0d2347768c/transformed/ui-util/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-unit-android:1.9.0] /Users/drivemetadata/.gradle/caches/transforms-4/c6cf8fcf68e3200f00bb4466671b1f46/transformed/ui-unit/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-unit-android:1.9.0] /Users/drivemetadata/.gradle/caches/transforms-4/c6cf8fcf68e3200f00bb4466671b1f46/transformed/ui-unit/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-graphics-android:1.9.0] /Users/drivemetadata/.gradle/caches/transforms-4/81d35e1c06e786e39f1e7b5e3449c1d5/transformed/ui-graphics-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-graphics-android:1.9.0] /Users/drivemetadata/.gradle/caches/transforms-4/81d35e1c06e786e39f1e7b5e3449c1d5/transformed/ui-graphics-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-geometry-android:1.9.0] /Users/drivemetadata/.gradle/caches/transforms-4/e5342d0eddf776cc62dfd1f9c444687b/transformed/ui-geometry/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-geometry-android:1.9.0] /Users/drivemetadata/.gradle/caches/transforms-4/e5342d0eddf776cc62dfd1f9c444687b/transformed/ui-geometry/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-text-android:1.9.0] /Users/drivemetadata/.gradle/caches/transforms-4/278725bacb50784ba404e2d4206c0fdc/transformed/ui-text/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-text-android:1.9.0] /Users/drivemetadata/.gradle/caches/transforms-4/278725bacb50784ba404e2d4206c0fdc/transformed/ui-text/AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2:1.4.0] /Users/drivemetadata/.gradle/caches/transforms-4/b6dbe5dbd8bda95ff074f8d2efd5f066/transformed/emoji2-1.4.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.emoji2:emoji2:1.4.0] /Users/drivemetadata/.gradle/caches/transforms-4/b6dbe5dbd8bda95ff074f8d2efd5f066/transformed/emoji2-1.4.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.10.0] /Users/drivemetadata/.gradle/caches/transforms-4/a981862a9e9ea7295961238c01da3642/transformed/lifecycle-process-2.10.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.10.0] /Users/drivemetadata/.gradle/caches/transforms-4/a981862a9e9ea7295961238c01da3642/transformed/lifecycle-process-2.10.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.10.0] /Users/drivemetadata/.gradle/caches/transforms-4/ee2da36061dc9ec69b8e974a73b9de1c/transformed/lifecycle-livedata-core-2.10.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.10.0] /Users/drivemetadata/.gradle/caches/transforms-4/ee2da36061dc9ec69b8e974a73b9de1c/transformed/lifecycle-livedata-core-2.10.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.4.0] /Users/drivemetadata/.gradle/caches/transforms-4/1eb32bec06ded014de5e355e8657b034/transformed/savedstate-ktx-1.4.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.4.0] /Users/drivemetadata/.gradle/caches/transforms-4/1eb32bec06ded014de5e355e8657b034/transformed/savedstate-ktx-1.4.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.savedstate:savedstate-android:1.4.0] /Users/drivemetadata/.gradle/caches/transforms-4/b1cc17d6506f13b29dbaa140ee99bf1c/transformed/savedstate/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate-android:1.4.0] /Users/drivemetadata/.gradle/caches/transforms-4/b1cc17d6506f13b29dbaa140ee99bf1c/transformed/savedstate/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate-compose-android:1.4.0] /Users/drivemetadata/.gradle/caches/transforms-4/7cf91dc0791d3500062cc8223aea8da4/transformed/savedstate-compose/AndroidManifest.xml:5:5-44
+MERGED from [androidx.savedstate:savedstate-compose-android:1.4.0] /Users/drivemetadata/.gradle/caches/transforms-4/7cf91dc0791d3500062cc8223aea8da4/transformed/savedstate-compose/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-android:1.9.0] /Users/drivemetadata/.gradle/caches/transforms-4/181a031eadf173bf1eae32e245543541/transformed/runtime/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-android:1.9.0] /Users/drivemetadata/.gradle/caches/transforms-4/181a031eadf173bf1eae32e245543541/transformed/runtime/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-annotation-android:1.9.0] /Users/drivemetadata/.gradle/caches/transforms-4/5e22e614e82eea7761b590df722a381a/transformed/runtime-annotation/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-annotation-android:1.9.0] /Users/drivemetadata/.gradle/caches/transforms-4/5e22e614e82eea7761b590df722a381a/transformed/runtime-annotation/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.9.0] /Users/drivemetadata/.gradle/caches/transforms-4/556376168f5249e114598be928baab4e/transformed/runtime-saveable/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.9.0] /Users/drivemetadata/.gradle/caches/transforms-4/556376168f5249e114598be928baab4e/transformed/runtime-saveable/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.10.0] /Users/drivemetadata/.gradle/caches/transforms-4/b967e41750a9189c0222b1b000e69e2c/transformed/lifecycle-runtime-compose/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.10.0] /Users/drivemetadata/.gradle/caches/transforms-4/b967e41750a9189c0222b1b000e69e2c/transformed/lifecycle-runtime-compose/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.10.0] /Users/drivemetadata/.gradle/caches/transforms-4/3588d43ebdcda7cfa0ee504f8a506427/transformed/lifecycle-viewmodel-savedstate/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.10.0] /Users/drivemetadata/.gradle/caches/transforms-4/3588d43ebdcda7cfa0ee504f8a506427/transformed/lifecycle-viewmodel-savedstate/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.10.0] /Users/drivemetadata/.gradle/caches/transforms-4/5d994f277c7bae7e34b98a0b99225ef2/transformed/lifecycle-runtime-ktx/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.10.0] /Users/drivemetadata/.gradle/caches/transforms-4/5d994f277c7bae7e34b98a0b99225ef2/transformed/lifecycle-runtime-ktx/AndroidManifest.xml:5:5-44
+MERGED from [androidx.appcompat:appcompat-resources:1.6.1] /Users/drivemetadata/.gradle/caches/transforms-4/f452b64fcc74fc501a33769104189b27/transformed/appcompat-resources-1.6.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat-resources:1.6.1] /Users/drivemetadata/.gradle/caches/transforms-4/f452b64fcc74fc501a33769104189b27/transformed/appcompat-resources-1.6.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.autofill:autofill:1.0.0] /Users/drivemetadata/.gradle/caches/transforms-4/bca6a6ceb7c3a7034af0de84dcd61821/transformed/autofill-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.autofill:autofill:1.0.0] /Users/drivemetadata/.gradle/caches/transforms-4/bca6a6ceb7c3a7034af0de84dcd61821/transformed/autofill-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/drivemetadata/.gradle/caches/transforms-4/53648d284c9a00ec6b8408c560847ae3/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /Users/drivemetadata/.gradle/caches/transforms-4/53648d284c9a00ec6b8408c560847ae3/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/drivemetadata/.gradle/caches/transforms-4/eb8d9a200937aea9e1f9c5af013152ca/transformed/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /Users/drivemetadata/.gradle/caches/transforms-4/eb8d9a200937aea9e1f9c5af013152ca/transformed/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] /Users/drivemetadata/.gradle/caches/transforms-4/ffcc8bee27500155f15a2c5be7145e01/transformed/customview-poolingcontainer-1.0.0/AndroidManifest.xml:20:5-21:38
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] /Users/drivemetadata/.gradle/caches/transforms-4/ffcc8bee27500155f15a2c5be7145e01/transformed/customview-poolingcontainer-1.0.0/AndroidManifest.xml:20:5-21:38
+MERGED from [androidx.core:core-ktx:1.15.0] /Users/drivemetadata/.gradle/caches/transforms-4/c6cab3495a4f68382359b9dccfa53d32/transformed/core-ktx-1.15.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-ktx:1.15.0] /Users/drivemetadata/.gradle/caches/transforms-4/c6cab3495a4f68382359b9dccfa53d32/transformed/core-ktx-1.15.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.graphics:graphics-path:1.0.1] /Users/drivemetadata/.gradle/caches/transforms-4/7a8c4af4209fc453adab76c8a1edde00/transformed/graphics-path-1.0.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.graphics:graphics-path:1.0.1] /Users/drivemetadata/.gradle/caches/transforms-4/7a8c4af4209fc453adab76c8a1edde00/transformed/graphics-path-1.0.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core:1.15.0] /Users/drivemetadata/.gradle/caches/transforms-4/ccfe0232209faeee8913f6084927a819/transformed/core-1.15.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.15.0] /Users/drivemetadata/.gradle/caches/transforms-4/ccfe0232209faeee8913f6084927a819/transformed/core-1.15.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.10.0] /Users/drivemetadata/.gradle/caches/transforms-4/95ce0e4bfbcc84b21352f1334c22e65f/transformed/lifecycle-runtime/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.10.0] /Users/drivemetadata/.gradle/caches/transforms-4/95ce0e4bfbcc84b21352f1334c22e65f/transformed/lifecycle-runtime/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.10.0] /Users/drivemetadata/.gradle/caches/transforms-4/4242fb3663b828e71c1db826cd56352c/transformed/lifecycle-viewmodel/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.10.0] /Users/drivemetadata/.gradle/caches/transforms-4/4242fb3663b828e71c1db826cd56352c/transformed/lifecycle-viewmodel/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.10.0] /Users/drivemetadata/.gradle/caches/transforms-4/9f985188da13124af9684411b1fbd7ce/transformed/lifecycle-viewmodel-ktx-2.10.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.10.0] /Users/drivemetadata/.gradle/caches/transforms-4/9f985188da13124af9684411b1fbd7ce/transformed/lifecycle-viewmodel-ktx-2.10.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose-android:2.10.0] /Users/drivemetadata/.gradle/caches/transforms-4/23cf932809e7123fc24f368ef3f33438/transformed/lifecycle-viewmodel-compose/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose-android:2.10.0] /Users/drivemetadata/.gradle/caches/transforms-4/23cf932809e7123fc24f368ef3f33438/transformed/lifecycle-viewmodel-compose/AndroidManifest.xml:5:5-44
+MERGED from [com.google.accompanist:accompanist-drawablepainter:0.32.0] /Users/drivemetadata/.gradle/caches/transforms-4/36a4bd700a97e0b002e57d19ea7afc6e/transformed/accompanist-drawablepainter-0.32.0/AndroidManifest.xml:21:5-44
+MERGED from [com.google.accompanist:accompanist-drawablepainter:0.32.0] /Users/drivemetadata/.gradle/caches/transforms-4/36a4bd700a97e0b002e57d19ea7afc6e/transformed/accompanist-drawablepainter-0.32.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.compose.ui:ui-android:1.9.0] /Users/drivemetadata/.gradle/caches/transforms-4/3abb0aa0fa7f60995de46c5ffe20bf23/transformed/ui-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-android:1.9.0] /Users/drivemetadata/.gradle/caches/transforms-4/3abb0aa0fa7f60995de46c5ffe20bf23/transformed/ui-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-test-manifest:1.9.0] /Users/drivemetadata/.gradle/caches/transforms-4/6ecb3bf4d4e911471a4c03e09bca2592/transformed/ui-test-manifest-1.9.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-test-manifest:1.9.0] /Users/drivemetadata/.gradle/caches/transforms-4/6ecb3bf4d4e911471a4c03e09bca2592/transformed/ui-test-manifest-1.9.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.8.0] /Users/drivemetadata/.gradle/caches/transforms-4/e655b62ddf207c980fa4cfd45b5356c4/transformed/activity-1.8.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.8.0] /Users/drivemetadata/.gradle/caches/transforms-4/e655b62ddf207c980fa4cfd45b5356c4/transformed/activity-1.8.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity-ktx:1.8.0] /Users/drivemetadata/.gradle/caches/transforms-4/7323cdc933e44bdf53495a9de3f98433/transformed/activity-ktx-1.8.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-ktx:1.8.0] /Users/drivemetadata/.gradle/caches/transforms-4/7323cdc933e44bdf53495a9de3f98433/transformed/activity-ktx-1.8.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-compose:1.8.0] /Users/drivemetadata/.gradle/caches/transforms-4/5a8915338207445279ad856bf25312b5/transformed/activity-compose-1.8.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-compose:1.8.0] /Users/drivemetadata/.gradle/caches/transforms-4/5a8915338207445279ad856bf25312b5/transformed/activity-compose-1.8.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.datastore:datastore-preferences:1.0.0] /Users/drivemetadata/.gradle/caches/transforms-4/53fa4a9026ef8e2367e03f5238c7f649/transformed/datastore-preferences-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.datastore:datastore-preferences:1.0.0] /Users/drivemetadata/.gradle/caches/transforms-4/53fa4a9026ef8e2367e03f5238c7f649/transformed/datastore-preferences-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.datastore:datastore:1.0.0] /Users/drivemetadata/.gradle/caches/transforms-4/7fb31c42610e89182e6d9c1e68f8e0c9/transformed/datastore-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.datastore:datastore:1.0.0] /Users/drivemetadata/.gradle/caches/transforms-4/7fb31c42610e89182e6d9c1e68f8e0c9/transformed/datastore-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [io.github.aakira:napier-android-debug:1.4.1] /Users/drivemetadata/.gradle/caches/transforms-4/0633d0b2fa3fbda991753bec04c2e69d/transformed/napier-debug/AndroidManifest.xml:7:5-9:41
+MERGED from [io.github.aakira:napier-android-debug:1.4.1] /Users/drivemetadata/.gradle/caches/transforms-4/0633d0b2fa3fbda991753bec04c2e69d/transformed/napier-debug/AndroidManifest.xml:7:5-9:41
+MERGED from [androidx.exifinterface:exifinterface:1.3.6] /Users/drivemetadata/.gradle/caches/transforms-4/99864f02a1128a2b57ba2bda889a6e06/transformed/exifinterface-1.3.6/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.exifinterface:exifinterface:1.3.6] /Users/drivemetadata/.gradle/caches/transforms-4/99864f02a1128a2b57ba2bda889a6e06/transformed/exifinterface-1.3.6/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/drivemetadata/.gradle/caches/transforms-4/9eb380073895536fded5545c440dacd8/transformed/profileinstaller-1.4.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/drivemetadata/.gradle/caches/transforms-4/9eb380073895536fded5545c440dacd8/transformed/profileinstaller-1.4.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /Users/drivemetadata/.gradle/caches/transforms-4/f906145cc371c418f09487d0df32515c/transformed/core-runtime-2.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.2.0] /Users/drivemetadata/.gradle/caches/transforms-4/f906145cc371c418f09487d0df32515c/transformed/core-runtime-2.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/drivemetadata/.gradle/caches/transforms-4/1cc84eb9b10a83898ebb6ee790b03fdb/transformed/startup-runtime-1.1.1/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/drivemetadata/.gradle/caches/transforms-4/1cc84eb9b10a83898ebb6ee790b03fdb/transformed/startup-runtime-1.1.1/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/drivemetadata/.gradle/caches/transforms-4/6ad1d39661e14e61f1d14a04d98ed861/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/drivemetadata/.gradle/caches/transforms-4/6ad1d39661e14e61f1d14a04d98ed861/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.tracing:tracing:1.2.0] /Users/drivemetadata/.gradle/caches/transforms-4/626d0a6b22f1a9fdd353bd107dd3c8b0/transformed/tracing-1.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.tracing:tracing:1.2.0] /Users/drivemetadata/.gradle/caches/transforms-4/626d0a6b22f1a9fdd353bd107dd3c8b0/transformed/tracing-1.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/drivemetadata/.gradle/caches/transforms-4/5c7be22d926e1af09de7cba525117d6a/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/drivemetadata/.gradle/caches/transforms-4/5c7be22d926e1af09de7cba525117d6a/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.4.1] /Users/drivemetadata/.gradle/caches/transforms-4/981cd2acfc5bb4f9b77ba5c3d01d6689/transformed/annotation-experimental-1.4.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.4.1] /Users/drivemetadata/.gradle/caches/transforms-4/981cd2acfc5bb4f9b77ba5c3d01d6689/transformed/annotation-experimental-1.4.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-viewtree:1.0.0] /Users/drivemetadata/.gradle/caches/transforms-4/10f763a1be63826e6d064c38ad76aab7/transformed/core-viewtree-1.0.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-viewtree:1.0.0] /Users/drivemetadata/.gradle/caches/transforms-4/10f763a1be63826e6d064c38ad76aab7/transformed/core-viewtree-1.0.0/AndroidManifest.xml:5:5-44
+	android:targetSdkVersion
+		INJECTED from /Users/drivemetadata/anitigravity/PDFMasterTools/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/drivemetadata/anitigravity/PDFMasterTools/app/src/main/AndroidManifest.xml
+activity#androidx.compose.ui.tooling.PreviewActivity
+ADDED from [androidx.compose.ui:ui-tooling-android:1.9.0] /Users/drivemetadata/.gradle/caches/transforms-4/6efcb4ef3607810c8304e3147bf478e4/transformed/ui-tooling/AndroidManifest.xml:23:9-25:39
+	android:exported
+		ADDED from [androidx.compose.ui:ui-tooling-android:1.9.0] /Users/drivemetadata/.gradle/caches/transforms-4/6efcb4ef3607810c8304e3147bf478e4/transformed/ui-tooling/AndroidManifest.xml:25:13-36
+	android:name
+		ADDED from [androidx.compose.ui:ui-tooling-android:1.9.0] /Users/drivemetadata/.gradle/caches/transforms-4/6efcb4ef3607810c8304e3147bf478e4/transformed/ui-tooling/AndroidManifest.xml:24:13-71
+provider#androidx.startup.InitializationProvider
+ADDED from [androidx.emoji2:emoji2:1.4.0] /Users/drivemetadata/.gradle/caches/transforms-4/b6dbe5dbd8bda95ff074f8d2efd5f066/transformed/emoji2-1.4.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.10.0] /Users/drivemetadata/.gradle/caches/transforms-4/a981862a9e9ea7295961238c01da3642/transformed/lifecycle-process-2.10.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.10.0] /Users/drivemetadata/.gradle/caches/transforms-4/a981862a9e9ea7295961238c01da3642/transformed/lifecycle-process-2.10.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/drivemetadata/.gradle/caches/transforms-4/9eb380073895536fded5545c440dacd8/transformed/profileinstaller-1.4.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/drivemetadata/.gradle/caches/transforms-4/9eb380073895536fded5545c440dacd8/transformed/profileinstaller-1.4.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/drivemetadata/.gradle/caches/transforms-4/1cc84eb9b10a83898ebb6ee790b03fdb/transformed/startup-runtime-1.1.1/AndroidManifest.xml:26:9-30:34
+MERGED from [androidx.startup:startup-runtime:1.1.1] /Users/drivemetadata/.gradle/caches/transforms-4/1cc84eb9b10a83898ebb6ee790b03fdb/transformed/startup-runtime-1.1.1/AndroidManifest.xml:26:9-30:34
+	tools:node
+		ADDED from [androidx.emoji2:emoji2:1.4.0] /Users/drivemetadata/.gradle/caches/transforms-4/b6dbe5dbd8bda95ff074f8d2efd5f066/transformed/emoji2-1.4.0/AndroidManifest.xml:28:13-31
+	android:authorities
+		ADDED from [androidx.emoji2:emoji2:1.4.0] /Users/drivemetadata/.gradle/caches/transforms-4/b6dbe5dbd8bda95ff074f8d2efd5f066/transformed/emoji2-1.4.0/AndroidManifest.xml:26:13-68
+	android:exported
+		ADDED from [androidx.emoji2:emoji2:1.4.0] /Users/drivemetadata/.gradle/caches/transforms-4/b6dbe5dbd8bda95ff074f8d2efd5f066/transformed/emoji2-1.4.0/AndroidManifest.xml:27:13-37
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.4.0] /Users/drivemetadata/.gradle/caches/transforms-4/b6dbe5dbd8bda95ff074f8d2efd5f066/transformed/emoji2-1.4.0/AndroidManifest.xml:25:13-67
+meta-data#androidx.emoji2.text.EmojiCompatInitializer
+ADDED from [androidx.emoji2:emoji2:1.4.0] /Users/drivemetadata/.gradle/caches/transforms-4/b6dbe5dbd8bda95ff074f8d2efd5f066/transformed/emoji2-1.4.0/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.emoji2:emoji2:1.4.0] /Users/drivemetadata/.gradle/caches/transforms-4/b6dbe5dbd8bda95ff074f8d2efd5f066/transformed/emoji2-1.4.0/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.4.0] /Users/drivemetadata/.gradle/caches/transforms-4/b6dbe5dbd8bda95ff074f8d2efd5f066/transformed/emoji2-1.4.0/AndroidManifest.xml:30:17-75
+meta-data#androidx.lifecycle.ProcessLifecycleInitializer
+ADDED from [androidx.lifecycle:lifecycle-process:2.10.0] /Users/drivemetadata/.gradle/caches/transforms-4/a981862a9e9ea7295961238c01da3642/transformed/lifecycle-process-2.10.0/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.lifecycle:lifecycle-process:2.10.0] /Users/drivemetadata/.gradle/caches/transforms-4/a981862a9e9ea7295961238c01da3642/transformed/lifecycle-process-2.10.0/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.lifecycle:lifecycle-process:2.10.0] /Users/drivemetadata/.gradle/caches/transforms-4/a981862a9e9ea7295961238c01da3642/transformed/lifecycle-process-2.10.0/AndroidManifest.xml:30:17-78
+permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.15.0] /Users/drivemetadata/.gradle/caches/transforms-4/ccfe0232209faeee8913f6084927a819/transformed/core-1.15.0/AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.15.0] /Users/drivemetadata/.gradle/caches/transforms-4/ccfe0232209faeee8913f6084927a819/transformed/core-1.15.0/AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.15.0] /Users/drivemetadata/.gradle/caches/transforms-4/ccfe0232209faeee8913f6084927a819/transformed/core-1.15.0/AndroidManifest.xml:23:9-81
+permission#com.kwh.pdfrederall.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.15.0] /Users/drivemetadata/.gradle/caches/transforms-4/ccfe0232209faeee8913f6084927a819/transformed/core-1.15.0/AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.15.0] /Users/drivemetadata/.gradle/caches/transforms-4/ccfe0232209faeee8913f6084927a819/transformed/core-1.15.0/AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.15.0] /Users/drivemetadata/.gradle/caches/transforms-4/ccfe0232209faeee8913f6084927a819/transformed/core-1.15.0/AndroidManifest.xml:23:9-81
+uses-permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.15.0] /Users/drivemetadata/.gradle/caches/transforms-4/ccfe0232209faeee8913f6084927a819/transformed/core-1.15.0/AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.15.0] /Users/drivemetadata/.gradle/caches/transforms-4/ccfe0232209faeee8913f6084927a819/transformed/core-1.15.0/AndroidManifest.xml:26:22-94
+uses-permission#com.kwh.pdfrederall.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.15.0] /Users/drivemetadata/.gradle/caches/transforms-4/ccfe0232209faeee8913f6084927a819/transformed/core-1.15.0/AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.15.0] /Users/drivemetadata/.gradle/caches/transforms-4/ccfe0232209faeee8913f6084927a819/transformed/core-1.15.0/AndroidManifest.xml:26:22-94
+activity#androidx.activity.ComponentActivity
+ADDED from [androidx.compose.ui:ui-test-manifest:1.9.0] /Users/drivemetadata/.gradle/caches/transforms-4/6ecb3bf4d4e911471a4c03e09bca2592/transformed/ui-test-manifest-1.9.0/AndroidManifest.xml:23:9-26:79
+	android:exported
+		ADDED from [androidx.compose.ui:ui-test-manifest:1.9.0] /Users/drivemetadata/.gradle/caches/transforms-4/6ecb3bf4d4e911471a4c03e09bca2592/transformed/ui-test-manifest-1.9.0/AndroidManifest.xml:25:13-36
+	android:theme
+		ADDED from [androidx.compose.ui:ui-test-manifest:1.9.0] /Users/drivemetadata/.gradle/caches/transforms-4/6ecb3bf4d4e911471a4c03e09bca2592/transformed/ui-test-manifest-1.9.0/AndroidManifest.xml:26:13-76
+	android:name
+		ADDED from [androidx.compose.ui:ui-test-manifest:1.9.0] /Users/drivemetadata/.gradle/caches/transforms-4/6ecb3bf4d4e911471a4c03e09bca2592/transformed/ui-test-manifest-1.9.0/AndroidManifest.xml:24:13-63
+meta-data#androidx.profileinstaller.ProfileInstallerInitializer
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/drivemetadata/.gradle/caches/transforms-4/9eb380073895536fded5545c440dacd8/transformed/profileinstaller-1.4.0/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/drivemetadata/.gradle/caches/transforms-4/9eb380073895536fded5545c440dacd8/transformed/profileinstaller-1.4.0/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/drivemetadata/.gradle/caches/transforms-4/9eb380073895536fded5545c440dacd8/transformed/profileinstaller-1.4.0/AndroidManifest.xml:30:17-85
+receiver#androidx.profileinstaller.ProfileInstallReceiver
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/drivemetadata/.gradle/caches/transforms-4/9eb380073895536fded5545c440dacd8/transformed/profileinstaller-1.4.0/AndroidManifest.xml:34:9-52:20
+	android:enabled
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/drivemetadata/.gradle/caches/transforms-4/9eb380073895536fded5545c440dacd8/transformed/profileinstaller-1.4.0/AndroidManifest.xml:37:13-35
+	android:exported
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/drivemetadata/.gradle/caches/transforms-4/9eb380073895536fded5545c440dacd8/transformed/profileinstaller-1.4.0/AndroidManifest.xml:38:13-36
+	android:permission
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/drivemetadata/.gradle/caches/transforms-4/9eb380073895536fded5545c440dacd8/transformed/profileinstaller-1.4.0/AndroidManifest.xml:39:13-57
+	android:directBootAware
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/drivemetadata/.gradle/caches/transforms-4/9eb380073895536fded5545c440dacd8/transformed/profileinstaller-1.4.0/AndroidManifest.xml:36:13-44
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/drivemetadata/.gradle/caches/transforms-4/9eb380073895536fded5545c440dacd8/transformed/profileinstaller-1.4.0/AndroidManifest.xml:35:13-76
+intent-filter#action:name:androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/drivemetadata/.gradle/caches/transforms-4/9eb380073895536fded5545c440dacd8/transformed/profileinstaller-1.4.0/AndroidManifest.xml:40:13-42:29
+action#androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/drivemetadata/.gradle/caches/transforms-4/9eb380073895536fded5545c440dacd8/transformed/profileinstaller-1.4.0/AndroidManifest.xml:41:17-91
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/drivemetadata/.gradle/caches/transforms-4/9eb380073895536fded5545c440dacd8/transformed/profileinstaller-1.4.0/AndroidManifest.xml:41:25-88
+intent-filter#action:name:androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/drivemetadata/.gradle/caches/transforms-4/9eb380073895536fded5545c440dacd8/transformed/profileinstaller-1.4.0/AndroidManifest.xml:43:13-45:29
+action#androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/drivemetadata/.gradle/caches/transforms-4/9eb380073895536fded5545c440dacd8/transformed/profileinstaller-1.4.0/AndroidManifest.xml:44:17-85
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/drivemetadata/.gradle/caches/transforms-4/9eb380073895536fded5545c440dacd8/transformed/profileinstaller-1.4.0/AndroidManifest.xml:44:25-82
+intent-filter#action:name:androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/drivemetadata/.gradle/caches/transforms-4/9eb380073895536fded5545c440dacd8/transformed/profileinstaller-1.4.0/AndroidManifest.xml:46:13-48:29
+action#androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/drivemetadata/.gradle/caches/transforms-4/9eb380073895536fded5545c440dacd8/transformed/profileinstaller-1.4.0/AndroidManifest.xml:47:17-88
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/drivemetadata/.gradle/caches/transforms-4/9eb380073895536fded5545c440dacd8/transformed/profileinstaller-1.4.0/AndroidManifest.xml:47:25-85
+intent-filter#action:name:androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/drivemetadata/.gradle/caches/transforms-4/9eb380073895536fded5545c440dacd8/transformed/profileinstaller-1.4.0/AndroidManifest.xml:49:13-51:29
+action#androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/drivemetadata/.gradle/caches/transforms-4/9eb380073895536fded5545c440dacd8/transformed/profileinstaller-1.4.0/AndroidManifest.xml:50:17-95
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] /Users/drivemetadata/.gradle/caches/transforms-4/9eb380073895536fded5545c440dacd8/transformed/profileinstaller-1.4.0/AndroidManifest.xml:50:25-92

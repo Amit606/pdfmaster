@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "com.kwh.pdfrederall.app-debug-41:/xml_file_paths.xml.flat",
+        "source": "com.kwh.pdfrederall.app-main-43:/xml/file_paths.xml"
+    },
+    {
+        "merged": "com.kwh.pdfrederall.app-debug-41:/drawable_ic_launcher.xml.flat",
+        "source": "com.kwh.pdfrederall.app-main-43:/drawable/ic_launcher.xml"
+    }
+]
