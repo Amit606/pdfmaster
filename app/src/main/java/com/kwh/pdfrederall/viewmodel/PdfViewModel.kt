@@ -52,6 +52,7 @@ class PdfViewModel(
         )
     }
 
+
     fun setOperation(op: PdfOperation) {
         _currentOperation.value = op
     }
@@ -146,17 +147,42 @@ class PdfViewModel(
     }
 
     // ✅ CONVERT
+//    fun startConversion() {
+//        val files = _selectedFiles.value
+//        if (files.isEmpty()) return
+//
+//        viewModelScope.launch {
+//            repeat(8) {
+//                delay(400)
+//            }
+//
+//            val file = files.first()
+//            val uri = createPdfFile()
+//
+//            _processingState.value = ProcessingState.Success(
+//                originalSizeBytes = file.sizeBytes,
+//                resultSizeBytes = (file.sizeBytes * 0.3).toLong(),
+//                savedPercent = 70,
+//                resultUri = uri
+//            )
+//        }
+//    }
     fun startConversion() {
         val files = _selectedFiles.value
         if (files.isEmpty()) return
 
         viewModelScope.launch {
-            repeat(8) {
-                delay(400)
-            }
+            repeat(8) { delay(400) }
 
             val file = files.first()
-            val uri = createPdfFile()
+            val format = _convertFormat.value
+
+            val uri = when (format) {
+                ConvertFormat.JPG -> convertPdfToJpg(context, file.uri)
+                ConvertFormat.PNG -> convertPdfToPng(context, file.uri)
+                ConvertFormat.TXT -> convertPdfToText(context, file.uri)
+                ConvertFormat.WORD -> convertPdfToWord(context, file.uri)
+            }
 
             _processingState.value = ProcessingState.Success(
                 originalSizeBytes = file.sizeBytes,
@@ -217,4 +243,68 @@ class PdfViewModel(
 
     val totalSelectedSize: Long
         get() = _selectedFiles.value.sumOf { it.sizeBytes }
+    private fun convertPdfToJpg(context: Context, pdfUri: Uri): Uri {
+        val fd = context.contentResolver.openFileDescriptor(pdfUri, "r")!!
+        val renderer = android.graphics.pdf.PdfRenderer(fd)
+
+        val page = renderer.openPage(0)
+
+        val bitmap = android.graphics.Bitmap.createBitmap(
+            page.width,
+            page.height,
+            android.graphics.Bitmap.Config.ARGB_8888
+        )
+
+        page.render(bitmap, null, null, android.graphics.pdf.PdfRenderer.Page.RENDER_MODE_FOR_DISPLAY)
+
+        val file = File(context.getExternalFilesDir(null), "output_${System.currentTimeMillis()}.jpg")
+        val out = java.io.FileOutputStream(file)
+
+        bitmap.compress(android.graphics.Bitmap.CompressFormat.JPEG, 100, out)
+
+        out.close()
+        page.close()
+        renderer.close()
+
+        return FileProvider.getUriForFile(context, "${context.packageName}.provider", file)
+    }
+    private fun convertPdfToPng(context: Context, pdfUri: Uri): Uri {
+        val fd = context.contentResolver.openFileDescriptor(pdfUri, "r")!!
+        val renderer = android.graphics.pdf.PdfRenderer(fd)
+
+        val page = renderer.openPage(0)
+
+        val bitmap = android.graphics.Bitmap.createBitmap(
+            page.width,
+            page.height,
+            android.graphics.Bitmap.Config.ARGB_8888
+        )
+
+        page.render(bitmap, null, null, android.graphics.pdf.PdfRenderer.Page.RENDER_MODE_FOR_DISPLAY)
+
+        val file = File(context.getExternalFilesDir(null), "output_${System.currentTimeMillis()}.png")
+        val out = java.io.FileOutputStream(file)
+
+        bitmap.compress(android.graphics.Bitmap.CompressFormat.PNG, 100, out)
+
+        out.close()
+        page.close()
+        renderer.close()
+
+        return FileProvider.getUriForFile(context, "${context.packageName}.provider", file)
+    }
+    private fun convertPdfToText(context: Context, pdfUri: Uri): Uri {
+        val file = File(context.getExternalFilesDir(null), "output_${System.currentTimeMillis()}.txt")
+
+        file.writeText("Text extraction not implemented yet")
+
+        return FileProvider.getUriForFile(context, "${context.packageName}.provider", file)
+    }
+    private fun convertPdfToWord(context: Context, pdfUri: Uri): Uri {
+        val file = File(context.getExternalFilesDir(null), "output_${System.currentTimeMillis()}.docx")
+
+        file.writeText("PDF to Word conversion not implemented")
+
+        return FileProvider.getUriForFile(context, "${context.packageName}.provider", file)
+    }
 }

@@ -41,7 +41,6 @@ fun SuccessScreen(
     val state by viewModel.processingState.collectAsStateWithLifecycle()
     val context = LocalContext.current
     val success = state as? ProcessingState.Success
-
     // Confetti-like particles
     val particles = remember {
         List(12) {
@@ -192,16 +191,12 @@ fun SuccessScreen(
             ) {
                 Button(
                     onClick = {
-                        val resultUri = success?.resultUri
-
-                        if (resultUri != null) {
-                            downloadFile(context, resultUri)
-                        }else{
-                            Toast.makeText(context, "File not available for download", Toast.LENGTH_SHORT).show()
-                        }
+                        downloadFile(context, success?.resultUri!!)
                         onDownload()
                     },
-                    modifier = Modifier.weight(1f).height(50.dp),
+                    modifier = Modifier
+                        .weight(1f)
+                        .height(50.dp),
                     shape = RoundedCornerShape(25.dp),
                     colors = ButtonDefaults.buttonColors(containerColor = BlueAccent)
                 ) {
@@ -225,7 +220,7 @@ fun SuccessScreen(
                 ) {
                     Icon(Icons.Default.Share, contentDescription = null, modifier = Modifier.size(20.dp))
                     Spacer(modifier = Modifier.width(6.dp))
-                    Text("Share", fontWeight = FontWeight.Bold)
+                    Text("Share", fontWeight = FontWeight.Bold, color = BlueAccent)
                 }
             }
 
@@ -254,21 +249,26 @@ fun StatRow(label: String, value: String, valueColor: Color) {
 
 private fun downloadFile(context: Context, uri: Uri) {
     try {
-        val intent = Intent(Intent.ACTION_VIEW).apply {
-            setDataAndType(uri, "application/pdf")
-            addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-        }
+        val inputStream = context.contentResolver.openInputStream(uri)
+            ?: throw Exception("Cannot open input stream")
 
-        if (intent.resolveActivity(context.packageManager) != null) {
-            context.startActivity(Intent.createChooser(intent, "Open PDF"))
-        } else {
-            Toast.makeText(context, "No app found to open PDF", Toast.LENGTH_SHORT).show()
-        }
+        val fileName = "compressed_${System.currentTimeMillis()}.pdf"
+
+        val downloadsDir = context.getExternalFilesDir(null)
+        val file = File(downloadsDir, fileName)
+
+        val outputStream = file.outputStream()
+
+        inputStream.copyTo(outputStream)
+
+        inputStream.close()
+        outputStream.close()
+
+       // Toast.makeText(context, "File saved: ${file.absolutePath}", Toast.LENGTH_LONG).show()
 
     } catch (e: Exception) {
         e.printStackTrace()
-        Toast.makeText(context, "Unable to open file", Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, "Download failed", Toast.LENGTH_SHORT).show()
     }
 }
 
