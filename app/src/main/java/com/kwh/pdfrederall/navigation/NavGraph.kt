@@ -24,9 +24,9 @@ fun AllPdfNavGraph(navController: NavHostController) {
         factory = PdfViewModelFactory(context.applicationContext)
     )
     val startDestination = if (isFirstLaunch(context)) {
-        Routes.INTRO
-    } else {
         Routes.HOME
+    } else {
+        Routes.INTRO
     }
     NavHost(
         navController = navController,
