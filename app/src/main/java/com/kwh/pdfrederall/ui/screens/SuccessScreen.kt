@@ -271,6 +271,7 @@ private fun downloadFile(context: Context, uri: Uri) {
         Toast.makeText(context, "Download failed", Toast.LENGTH_SHORT).show()
     }
 }
+//fixed the code
 
 private fun shareFile(context: Context, uri: Uri) {
     try {
