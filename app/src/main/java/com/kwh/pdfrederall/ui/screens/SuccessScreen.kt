@@ -1,8 +1,12 @@
 package com.kwh.pdfrederall.ui.screens
 
+import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.os.Build
+import android.os.Environment
+import android.provider.MediaStore
 import android.widget.Toast
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.background
@@ -247,29 +251,51 @@ fun StatRow(label: String, value: String, valueColor: Color) {
     }
 }
 
-private fun downloadFile(context: Context, uri: Uri) {
+fun downloadFile(context: Context, uri: Uri) {
     try {
-        val inputStream = context.contentResolver.openInputStream(uri)
-            ?: throw Exception("Cannot open input stream")
+        if (uri != null) {
+            val resolver = context.contentResolver
+            val inputStream = resolver.openInputStream(uri)
+                ?: throw Exception("Cannot open input stream")
 
-        val fileName = "compressed_${System.currentTimeMillis()}.pdf"
+            val fileName = "pdfreader_${System.currentTimeMillis()}.pdf"
 
-        val downloadsDir = context.getExternalFilesDir(null)
-        val file = File(downloadsDir, fileName)
+            val contentValues = ContentValues().apply {
+                put(MediaStore.MediaColumns.DISPLAY_NAME, fileName)
+                put(MediaStore.MediaColumns.MIME_TYPE, "application/pdf")
+                put(MediaStore.MediaColumns.RELATIVE_PATH, Environment.DIRECTORY_DOWNLOADS)
+            }
 
-        val outputStream = file.outputStream()
+            val fileUri = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                resolver.insert(
+                    MediaStore.Downloads.EXTERNAL_CONTENT_URI,
+                    contentValues
+                ) ?: throw Exception("Failed to create file")
+            } else {
+                TODO("VERSION.SDK_INT < Q")
+            }
 
-        inputStream.copyTo(outputStream)
+            val outputStream = resolver.openOutputStream(fileUri)
+                ?: throw Exception("Cannot open output stream")
 
-        inputStream.close()
-        outputStream.close()
+            inputStream.copyTo(outputStream)
 
+            inputStream.close()
+            outputStream.close()
 
-    } catch (e: Exception) {
-        e.printStackTrace()
-        Toast.makeText(context, "Download failed", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "Saved to Downloads", Toast.LENGTH_SHORT).show()
+
+        }
+        else{
+            Toast.makeText(context, "Error to Downloads", Toast.LENGTH_SHORT).show()
+
+        }
+        } catch (e: Exception) {
+            e.printStackTrace()
+            Toast.makeText(context, "Download failed", Toast.LENGTH_SHORT).show()
+        }
     }
-}
+
 //fixed the code
 
 private fun shareFile(context: Context, uri: Uri) {

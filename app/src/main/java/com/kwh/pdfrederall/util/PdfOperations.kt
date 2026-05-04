@@ -17,56 +17,56 @@ object PdfOperations {
      * Compress a PDF using Android's PdfRenderer (re-render at lower resolution).
      * Returns Uri of the output file, or null on failure.
      */
-    suspend fun compressPdf(
+    suspend fun compressPdfReal(
         context: Context,
         inputUri: Uri,
         quality: CompressionQuality
     ): Uri? = withContext(Dispatchers.IO) {
         try {
-            val pfd = context.contentResolver.openFileDescriptor(inputUri, "r") ?: return@withContext null
-            val renderer = PdfRenderer(pfd)
-            val outputFile = File(context.cacheDir, "compressed_${System.currentTimeMillis()}.pdf")
+            val inputStream = context.contentResolver.openInputStream(inputUri) ?: return@withContext null
 
-            // Scale factor based on quality
-            val scaleFactor = when (quality) {
-                CompressionQuality.HIGH -> 1.0f
-                CompressionQuality.BALANCED -> 0.75f
+            val document = com.tom_roush.pdfbox.pdmodel.PDDocument.load(inputStream)
+
+            val jpegQuality = when (quality) {
+                CompressionQuality.HIGH -> 0.9f
+                CompressionQuality.BALANCED -> 0.7f
                 CompressionQuality.SMALLEST -> 0.5f
             }
 
-            // Render each page as a compressed JPEG and combine into image list
-            val bitmaps = mutableListOf<Bitmap>()
-            for (i in 0 until renderer.pageCount) {
-                val page = renderer.openPage(i)
-                val width = (page.width * scaleFactor).toInt().coerceAtLeast(100)
-                val height = (page.height * scaleFactor).toInt().coerceAtLeast(100)
-                val bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565)
-                page.render(bitmap, null, null, PdfRenderer.Page.RENDER_MODE_FOR_DISPLAY)
-                page.close()
-                bitmaps.add(bitmap)
-            }
-            renderer.close()
-            pfd.close()
+            val renderer = com.tom_roush.pdfbox.rendering.PDFRenderer(document)
 
-            // Save bitmaps as compressed JPEGs for size demo
-            // In production, use iText or PDFBox for true PDF compression
-            val quality_int = when (quality) {
-                CompressionQuality.HIGH -> 90
-                CompressionQuality.BALANCED -> 70
-                CompressionQuality.SMALLEST -> 50
+            val newDoc = com.tom_roush.pdfbox.pdmodel.PDDocument()
+
+            for (i in 0 until document.numberOfPages) {
+                val image = renderer.renderImageWithDPI(i, 150f)
+
+                val page = com.tom_roush.pdfbox.pdmodel.PDPage(
+                    com.tom_roush.pdfbox.pdmodel.common.PDRectangle(
+                        image.width.toFloat(),
+                        image.height.toFloat()
+                    )
+                )
+                newDoc.addPage(page)
+
+                val pdImage = com.tom_roush.pdfbox.pdmodel.graphics.image.JPEGFactory.createFromImage(
+                    newDoc,
+                    image,
+                    jpegQuality
+                )
+
+                val contentStream = com.tom_roush.pdfbox.pdmodel.PDPageContentStream(newDoc, page)
+                contentStream.drawImage(pdImage, 0f, 0f)
+                contentStream.close()
             }
 
-            // Write first bitmap as JPEG preview to output path
-            val previewFile = File(context.cacheDir, "preview_${System.currentTimeMillis()}.jpg")
-            if (bitmaps.isNotEmpty()) {
-                FileOutputStream(previewFile).use { out ->
-                    bitmaps.first().compress(Bitmap.CompressFormat.JPEG, quality_int, out)
-                }
-                bitmaps.forEach { it.recycle() }
-                return@withContext Uri.fromFile(previewFile)
-            }
-            bitmaps.forEach { it.recycle() }
-            null
+            val outputFile = File(context.cacheDir, "compressed_${System.currentTimeMillis()}.pdf")
+            newDoc.save(outputFile)
+
+            document.close()
+            newDoc.close()
+
+            Uri.fromFile(outputFile)
+
         } catch (e: Exception) {
             e.printStackTrace()
             null

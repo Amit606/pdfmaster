@@ -1,8 +1,13 @@
 package com.kwh.pdfrederall.viewmodel
 
 import android.content.Context
+import android.graphics.Bitmap
+import android.graphics.pdf.PdfRenderer
 import android.net.Uri
+import android.os.ParcelFileDescriptor
+import android.util.Log
 import androidx.core.content.FileProvider
+import androidx.core.net.toUri
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.kwh.pdfrederall.data.model.*
@@ -13,6 +18,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import java.io.File
+import java.io.FileOutputStream
 
 class PdfViewModel(
     private val context: Context
@@ -119,7 +125,7 @@ class PdfViewModel(
 
             try {
                 val file = files.first()
-                val resultUri = PdfOperations.compressPdf(context, file.uri, quality)
+                val resultUri = PdfOperations.compressPdfReal(context, file.uri, quality)
 
                 val uri = resultUri ?: createPdfFile() // ✅ fallback safe
 
@@ -247,30 +253,78 @@ class PdfViewModel(
 
         return FileProvider.getUriForFile(context, "${context.packageName}.provider", file)
     }
-    private fun convertPdfToPng(context: Context, pdfUri: Uri): Uri {
-        val fd = context.contentResolver.openFileDescriptor(pdfUri, "r")!!
-        val renderer = android.graphics.pdf.PdfRenderer(fd)
+    fun convertPdfToPng(context: Context, pdfUri: Uri): Uri? {
+        try {
+            if (!isValidPdf(context, pdfUri)) {
+                Log.e("PDF_ERROR", "Not a valid PDF file")
+                return null
+            }
+            // ✅ Step 1: Copy to local file (fix for many URIs)
+            val localFile = copyToLocalFile(context, pdfUri) ?: return null
 
-        val page = renderer.openPage(0)
+            // ✅ Step 2: Validate PDF
+            if (!localFile.readText().startsWith("%PDF")) {
+                Log.e("PDF_ERROR", "Invalid PDF format")
+                return null
+            }
 
-        val bitmap = android.graphics.Bitmap.createBitmap(
-            page.width,
-            page.height,
-            android.graphics.Bitmap.Config.ARGB_8888
-        )
+            val pfd = ParcelFileDescriptor.open(localFile, ParcelFileDescriptor.MODE_READ_ONLY)
 
-        page.render(bitmap, null, null, android.graphics.pdf.PdfRenderer.Page.RENDER_MODE_FOR_DISPLAY)
+            val renderer = PdfRenderer(pfd)
 
-        val file = File(context.getExternalFilesDir(null), "output_${System.currentTimeMillis()}.png")
-        val out = java.io.FileOutputStream(file)
+            if (renderer.pageCount == 0) return null
 
-        bitmap.compress(android.graphics.Bitmap.CompressFormat.PNG, 100, out)
+            val page = renderer.openPage(0)
 
-        out.close()
-        page.close()
-        renderer.close()
+            val scale = 2f
+            val width = (page.width / scale).toInt()
+            val height = (page.height / scale).toInt()
 
-        return FileProvider.getUriForFile(context, "${context.packageName}.provider", file)
+            val bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
+
+            page.render(bitmap, null, null, PdfRenderer.Page.RENDER_MODE_FOR_DISPLAY)
+
+            val outputFile = File(context.cacheDir, "output_${System.currentTimeMillis()}.png")
+
+            FileOutputStream(outputFile).use { out ->
+                bitmap.compress(Bitmap.CompressFormat.PNG, 100, out)
+            }
+
+            page.close()
+            renderer.close()
+            pfd.close()
+
+            return outputFile.toUri()
+
+        } catch (e: Exception) {
+            e.printStackTrace()
+            return null
+        }
+    }
+    fun copyToLocalFile(context: Context, uri: Uri): File? {
+        return try {
+            val input = context.contentResolver.openInputStream(uri) ?: return null
+            val file = File(context.cacheDir, "temp_${System.currentTimeMillis()}.pdf")
+
+            FileOutputStream(file).use { output ->
+                input.copyTo(output)
+            }
+
+            file
+        } catch (e: Exception) {
+            null
+        }
+    }
+    fun isValidPdf(context: Context, uri: Uri): Boolean {
+        return try {
+            context.contentResolver.openInputStream(uri)?.use { input ->
+                val header = ByteArray(5)
+                input.read(header)
+                String(header) == "%PDF-"
+            } ?: false
+        } catch (e: Exception) {
+            false
+        }
     }
     private fun convertPdfToText(context: Context, pdfUri: Uri): Uri {
 
