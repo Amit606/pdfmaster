@@ -264,7 +264,6 @@ private fun downloadFile(context: Context, uri: Uri) {
         inputStream.close()
         outputStream.close()
 
-       // Toast.makeText(context, "File saved: ${file.absolutePath}", Toast.LENGTH_LONG).show()
 
     } catch (e: Exception) {
         e.printStackTrace()

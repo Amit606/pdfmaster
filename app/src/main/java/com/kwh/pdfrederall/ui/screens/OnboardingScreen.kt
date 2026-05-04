@@ -1,223 +1,164 @@
 package com.kwh.pdfrederall.ui.screens
 
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.LocalIndication
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Compress
-import androidx.compose.material.icons.filled.MergeType
-import androidx.compose.material.icons.filled.SwapHoriz
+import androidx.compose.material.icons.filled.ArrowForward
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.kwh.pdfrederall.data.model.OnboardingPage
-import com.kwh.pdfrederall.ui.theme.*
+import com.kwh.pdfrederall.data.model.pages
 
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun OnboardingScreen(
-    onFinish: () -> Unit
-) {
-    val pages = listOf(
-        OnboardingPage(
-            "Smaller Files, Same Quality",
-            "Compress your PDFs without sacrificing clarity—perfect for sharing, storage, and speed.",
-            Icons.Default.Compress
-        ),
-        OnboardingPage(
-            "Convert in Seconds",
-            "Turn PDFs into Word, JPG, PNG, and more—fast, accurate, and hassle-free.",
-            Icons.Default.SwapHoriz
-        ),
-        OnboardingPage(
-            "Organize with Ease",
-            "Merge multiple files or split documents effortlessly—stay in control of your workflow.",
-            Icons.Default.MergeType
-        )
-    )
+fun OnboardingScreen(onFinish: () -> Unit) {
 
     val pagerState = rememberPagerState(pageCount = { pages.size })
     val scope = rememberCoroutineScope()
 
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .statusBarsPadding()
-            .navigationBarsPadding()
-            .background(NavyDeep)
+    Column(
+        modifier = Modifier.fillMaxSize().systemBarsPadding().navigationBarsPadding()
     ) {
 
-        // 🔹 Top Bar (Brand + Skip)
+        HorizontalPager(
+            state = pagerState,
+            modifier = Modifier.weight(1f)
+        ) { page ->
+
+            OnboardingPageUI(pages[page])
+        }
+
+        // Bottom Section
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 24.dp, vertical = 16.dp),
+                .padding(20.dp),
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Text(
-                text = "PDF Toolkit",
-                style = MaterialTheme.typography.titleMedium,
-                color = TextPrimary,
-                fontWeight = FontWeight.SemiBold
-            )
 
             Text(
                 text = "Skip",
-                color = TextHint,
-                modifier = Modifier
-                    .clip(RoundedCornerShape(12.dp))
-                    .clickable(
-                        interactionSource = remember { MutableInteractionSource() },
-                        indication = LocalIndication.current
-                    ) {
-                        onFinish()
-                    }
-                    .padding(horizontal = 12.dp, vertical = 6.dp)
+                color = Color.Gray,
+                modifier = Modifier.clickable(
+                    interactionSource = remember { MutableInteractionSource() },
+                    indication = LocalIndication.current
+                ) {
+                    onFinish()
+                }
             )
-        }
 
-        Column(
-            modifier = Modifier.fillMaxSize()
-        ) {
-
-            Spacer(modifier = Modifier.height(60.dp))
-
-            // 🔹 Pager
-            HorizontalPager(
-                state = pagerState,
-                modifier = Modifier.weight(1f)
-            ) { page ->
-                OnboardingPageUI(pages[page])
-            }
-
-            // 🔹 Dots Indicator
             DotsIndicator(
                 totalDots = pages.size,
                 selectedIndex = pagerState.currentPage
             )
 
-            Spacer(modifier = Modifier.height(12.dp))
-
-            // 🔹 Button
-            Button(
-
-                onClick = {
-                    if (pagerState.currentPage == pages.lastIndex) {
-                        onFinish()
-                    } else {
-                        scope.launch {
-                            pagerState.animateScrollToPage(pagerState.currentPage + 1)
-                        }
-                    }
-                },
+            Box(
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 24.dp, vertical = 16.dp)
-                    .height(54.dp),
-                shape = RoundedCornerShape(28.dp),
-                colors = ButtonDefaults.buttonColors(containerColor = BlueAccent)
+                    .size(50.dp)
+                    .clip(CircleShape)
+                    .border(2.dp, Color.Black, CircleShape)
+                    .clickable(
+                        interactionSource = remember { MutableInteractionSource() },
+                        indication = LocalIndication.current
+                    ) {
+                        if (pagerState.currentPage < pages.lastIndex) {
+                            scope.launch {
+                                pagerState.animateScrollToPage(pagerState.currentPage + 1)
+                            }
+                        } else {
+                            onFinish()
+                        }
+                    },
+                contentAlignment = Alignment.Center
             ) {
-                Text(
-                    if (pagerState.currentPage == pages.lastIndex)
-                        "Get Started"
-                    else
-                        "Continue",
-                    fontWeight = FontWeight.SemiBold
-                )
+                Icon(Icons.Default.ArrowForward, tint =Color.Black, contentDescription = null)
             }
         }
     }
 }
-
 @Composable
 fun OnboardingPageUI(page: OnboardingPage) {
+
     Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(horizontal = 28.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
+        modifier = Modifier.fillMaxSize()
     ) {
 
-        // 🔥 Icon Card
+        // 🔴 Top Red Section
         Box(
             modifier = Modifier
-                .size(140.dp)
-                .clip(RoundedCornerShape(32.dp))
-                .background(BlueAccent.copy(alpha = 0.1f)),
+                .fillMaxWidth()
+                .height(300.dp)
+                .background(Color(0xFFD32F2F)),
             contentAlignment = Alignment.Center
         ) {
-            Icon(
-                imageVector = page.icon,
+            Image(
+                painter = painterResource(id = page.image),
                 contentDescription = null,
-                tint = BlueAccent,
-                modifier = Modifier.size(72.dp)
+                modifier = Modifier.size(140.dp)
             )
         }
 
-        Spacer(modifier = Modifier.height(36.dp))
+        // ⚪ Bottom Content
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(Color.White)
+                .padding(20.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
 
-        Text(
-            text = page.title,
-            style = MaterialTheme.typography.headlineMedium,
-            color = TextPrimary,
-            fontWeight = FontWeight.Bold,
-            textAlign = TextAlign.Center
-        )
+            Spacer(modifier = Modifier.height(20.dp))
 
-        Spacer(modifier = Modifier.height(14.dp))
+            Text(
+                text = page.title,
+                fontSize = 22.sp,
+                fontWeight = FontWeight.Bold
+            )
 
-        Text(
-            text = page.description,
-            style = MaterialTheme.typography.bodyLarge,
-            color = TextSecondary,
-            textAlign = TextAlign.Center
-        )
+            Spacer(modifier = Modifier.height(10.dp))
 
-        Spacer(modifier = Modifier.height(24.dp))
-
-        // 🔹 Trust Line
-        Text(
-            text = "Fast • Secure • Reliable",
-            style = MaterialTheme.typography.labelMedium,
-            color = TextHint
-        )
+            Text(
+                text = page.description,
+                color = Color.Gray,
+                textAlign = TextAlign.Center
+            )
+        }
     }
 }
-
 @Composable
-fun DotsIndicator(
-    totalDots: Int,
-    selectedIndex: Int
-) {
-    Row(
-        modifier = Modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.Center
-    ) {
+fun DotsIndicator(totalDots: Int, selectedIndex: Int) {
+
+    Row {
         repeat(totalDots) { index ->
+
             Box(
                 modifier = Modifier
                     .padding(4.dp)
-                    .size(if (index == selectedIndex) 14.dp else 8.dp)
+                    .size(if (index == selectedIndex) 10.dp else 6.dp)
                     .clip(CircleShape)
                     .background(
-                        if (index == selectedIndex) BlueAccent
-                        else TextHint
+                        if (index == selectedIndex) Color.Red else Color.LightGray
                     )
             )
         }

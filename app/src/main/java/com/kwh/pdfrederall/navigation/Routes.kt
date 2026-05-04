@@ -12,6 +12,8 @@ object Routes {
     const val SPLIT_PDF = "split_pdf"
     const val PROCESSING = "processing"
     const val SUCCESS = "success"
+    const val LANGUAGE = "language"
+    const val SETTINGS = "settings"
 
     fun selectFiles(operation: String) = "select_files/$operation"
 }

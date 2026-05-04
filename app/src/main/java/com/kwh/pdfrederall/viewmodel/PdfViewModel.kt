@@ -146,27 +146,6 @@ class PdfViewModel(
         }
     }
 
-    // ✅ CONVERT
-//    fun startConversion() {
-//        val files = _selectedFiles.value
-//        if (files.isEmpty()) return
-//
-//        viewModelScope.launch {
-//            repeat(8) {
-//                delay(400)
-//            }
-//
-//            val file = files.first()
-//            val uri = createPdfFile()
-//
-//            _processingState.value = ProcessingState.Success(
-//                originalSizeBytes = file.sizeBytes,
-//                resultSizeBytes = (file.sizeBytes * 0.3).toLong(),
-//                savedPercent = 70,
-//                resultUri = uri
-//            )
-//        }
-//    }
     fun startConversion() {
         val files = _selectedFiles.value
         if (files.isEmpty()) return
@@ -294,17 +273,68 @@ class PdfViewModel(
         return FileProvider.getUriForFile(context, "${context.packageName}.provider", file)
     }
     private fun convertPdfToText(context: Context, pdfUri: Uri): Uri {
-        val file = File(context.getExternalFilesDir(null), "output_${System.currentTimeMillis()}.txt")
 
-        file.writeText("Text extraction not implemented yet")
+        // 🔹 Copy PDF from Uri → temp file
+        val inputStream = context.contentResolver.openInputStream(pdfUri)!!
+        val tempPdf = File(context.cacheDir, "temp_${System.currentTimeMillis()}.pdf")
 
-        return FileProvider.getUriForFile(context, "${context.packageName}.provider", file)
+        tempPdf.outputStream().use { inputStream.copyTo(it) }
+
+        // 🔹 Extract text using PDFBox
+        val document = com.tom_roush.pdfbox.pdmodel.PDDocument.load(tempPdf)
+        val stripper = com.tom_roush.pdfbox.text.PDFTextStripper()
+        val text = stripper.getText(document)
+        document.close()
+
+        // 🔹 Save as TXT
+        val outputFile = File(
+            context.getExternalFilesDir(null),
+            "output_${System.currentTimeMillis()}.txt"
+        )
+
+        outputFile.writeText(text)
+
+        return FileProvider.getUriForFile(
+            context,
+            "${context.packageName}.provider",
+            outputFile
+        )
     }
     private fun convertPdfToWord(context: Context, pdfUri: Uri): Uri {
-        val file = File(context.getExternalFilesDir(null), "output_${System.currentTimeMillis()}.docx")
 
-        file.writeText("PDF to Word conversion not implemented")
+        // 🔹 Copy PDF from Uri → File
+        val inputStream = context.contentResolver.openInputStream(pdfUri)!!
+        val tempPdf = File(context.cacheDir, "temp.pdf")
+        tempPdf.outputStream().use { inputStream.copyTo(it) }
 
-        return FileProvider.getUriForFile(context, "${context.packageName}.provider", file)
+        // 🔹 Extract text using PDFBox
+        val document = com.tom_roush.pdfbox.pdmodel.PDDocument.load(tempPdf)
+        val stripper = com.tom_roush.pdfbox.text.PDFTextStripper()
+        val text = stripper.getText(document)
+        document.close()
+
+        // 🔹 Create DOCX using Apache POI
+        val doc = org.apache.poi.xwpf.usermodel.XWPFDocument()
+        val paragraph = doc.createParagraph()
+        val run = paragraph.createRun()
+        run.setText(text)
+
+        // 🔹 Save DOCX file
+        val file = File(
+            context.getExternalFilesDir(null),
+            "output_${System.currentTimeMillis()}.docx"
+        )
+
+        file.outputStream().use {
+            doc.write(it)
+        }
+
+        doc.close()
+
+        return FileProvider.getUriForFile(
+            context,
+            "${context.packageName}.provider",
+            file
+        )
     }
 }

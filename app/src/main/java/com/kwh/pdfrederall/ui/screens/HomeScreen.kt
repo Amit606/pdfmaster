@@ -1,15 +1,10 @@
 package com.kwh.pdfrederall.ui.screens
 
-import android.app.Activity
-import android.content.Intent
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.compose.animation.*
-import androidx.compose.animation.core.*
 import androidx.compose.foundation.*
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
@@ -20,265 +15,249 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.kwh.pdfrederall.data.model.PdfOperation
-import com.kwh.pdfrederall.ui.theme.*
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(
     onNavigateToSelectFiles: (PdfOperation) -> Unit
 ) {
-    val scrollState = rememberScrollState()
 
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .statusBarsPadding()      // 🔝 top safe (toolbar / notch)
-            .navigationBarsPadding()
-            .background(NavyDeep)
+    val drawerState = rememberDrawerState(DrawerValue.Closed)
+
+    // 👉 Controls
+    var openDrawer by remember { mutableStateOf(false) }
+    var selectedOperation by remember { mutableStateOf<PdfOperation?>(null) }
+
+    val launcher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.OpenMultipleDocuments()
+    ) { uris ->
+        if (uris.isNotEmpty()) {
+            onNavigateToSelectFiles(PdfOperation.COMPRESS)
+        }
+    }
+
+    // ✅ OPEN DRAWER (SAFE)
+    LaunchedEffect(openDrawer) {
+        if (openDrawer) {
+            drawerState.open()
+            openDrawer = false
+        }
+    }
+
+    // ✅ CLOSE + NAVIGATE (CRASH FIX 🔥)
+    LaunchedEffect(selectedOperation) {
+        selectedOperation?.let { operation ->
+
+            drawerState.close()
+
+            kotlinx.coroutines.delay(250) // IMPORTANT
+
+            onNavigateToSelectFiles(operation)
+
+            selectedOperation = null
+        }
+    }
+
+    ModalNavigationDrawer(
+        drawerState = drawerState,
+        drawerContent = {
+            DrawerContent(
+                onItemClick = { operation ->
+                    selectedOperation = operation
+                }
+            )
+        }
     ) {
+
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .verticalScroll(scrollState),
-            horizontalAlignment = Alignment.CenterHorizontally
+                .background(Color(0xFFF4F6F8))
         ) {
 
-
-            // 🔥 HEADER (Premium SaaS Style)
+            // 🔵 HEADER
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
+                    .height(260.dp)
                     .background(
                         Brush.verticalGradient(
-                            colors = listOf(BlueGradientStart, NavyDeep)
+                            listOf(Color(0xFF1E5EFF), Color(0xFF4A90E2))
                         )
                     )
-                    .padding(horizontal = 24.dp, vertical = 32.dp),
-                contentAlignment = Alignment.Center
             ) {
-                Column(horizontalAlignment = Alignment.CenterHorizontally) {
 
-                    Text(
-                        text = "PDF Toolkit",
-                        style = MaterialTheme.typography.headlineLarge,
-                        color = Color.White,
-                        fontWeight = FontWeight.Bold
-                    )
+                Column(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(top = 40.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
 
-                    Spacer(modifier = Modifier.height(12.dp))
-
-                    Text(
-                        text = "All-in-one PDF tools to compress, convert, and organize your documents effortlessly.",
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = Color.White.copy(alpha = 0.85f),
-                        textAlign = TextAlign.Center,
-                        lineHeight = 20.sp
-                    )
-
-                    Spacer(modifier = Modifier.height(28.dp))
-
-                    // 🔥 Upload CTA (Improved)
-                    val launcher = rememberLauncherForActivityResult(
-                        contract = ActivityResultContracts.OpenMultipleDocuments()
-                    ) { uris ->
-                        if (uris.isNotEmpty()) {
-                            onNavigateToSelectFiles(PdfOperation.COMPRESS)
-                        }
-                    }
-
-                    Button(
-                        onClick = { launcher.launch(arrayOf("application/pdf")) },
+                    // ☰ MENU
+                    Row(
                         modifier = Modifier
-                            .fillMaxWidth(0.75f)
-                            .height(54.dp),
-                        shape = RoundedCornerShape(28.dp),
-                        colors = ButtonDefaults.buttonColors(
-                            containerColor = Color.White,
-                            contentColor = BlueAccent
-                        ),
-                        elevation = ButtonDefaults.buttonElevation(defaultElevation = 6.dp)
+                            .fillMaxWidth()
+                            .padding(horizontal = 16.dp)
                     ) {
                         Icon(
-                            imageVector = Icons.Default.Upload,
+                            Icons.Default.Menu,
                             contentDescription = null,
-                            modifier = Modifier.size(20.dp)
-                        )
-
-                        Spacer(modifier = Modifier.width(8.dp))
-
-                        Text(
-                            text = "Upload PDF",
-                            fontWeight = FontWeight.SemiBold,
-                            fontSize = 15.sp
+                            tint = Color.White,
+                            modifier = Modifier.clickable(
+                                interactionSource = remember { MutableInteractionSource() },
+                                indication = LocalIndication.current
+                            ) {
+                                openDrawer = true
+                            }
                         )
                     }
 
                     Spacer(modifier = Modifier.height(10.dp))
 
-                    // 🔒 Trust Line (Important for US users)
                     Text(
-                        text = "Secure • Private • No signup required",
-                        style = MaterialTheme.typography.bodySmall,
-                        color = Color.White.copy(alpha = 0.7f)
+                        "PDF Tools",
+                        color = Color.White,
+                        fontSize = 22.sp,
+                        fontWeight = FontWeight.Bold
                     )
 
-                    Spacer(modifier = Modifier.height(28.dp))
+                    Spacer(modifier = Modifier.height(6.dp))
+
+                    Text(
+                        "Compress, Convert,\nMerge & Split PDFs",
+                        color = Color.White.copy(alpha = 0.9f),
+                        textAlign = TextAlign.Center
+                    )
+
+                    Spacer(modifier = Modifier.height(20.dp))
+
+                    Button(
+                        onClick = { launcher.launch(arrayOf("application/pdf")) },
+                        shape = RoundedCornerShape(30.dp),
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = Color(0xFF2D7CFF)
+                        )
+                    ) {
+                        Icon(Icons.Default.Upload, contentDescription = null, tint = Color.White)
+                        Spacer(modifier = Modifier.width(8.dp))
+                        Text("Upload Files", color = Color.White)
+                    }
                 }
             }
 
-            // 🔥 TOOL GRID
-            Column(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp)
-                    .offset(y = (-20).dp)
-            ) {
+            Spacer(modifier = Modifier.height(16.dp))
 
-                Row(
-                    horizontalArrangement = Arrangement.spacedBy(12.dp)
-                ) {
-                    PdfToolCard(
-                        modifier = Modifier.weight(1f),
-                        icon = Icons.Default.Compress,
-                        label = "Compress",
-                        iconBg = IconBgBlue,
-                        iconColor = BlueAccent,
-                        onClick = { onNavigateToSelectFiles(PdfOperation.COMPRESS) }
-                    )
+            Text(
+                "Compress, Convert, Merge & Split PDFs",
+                modifier = Modifier.align(Alignment.CenterHorizontally),
+                color = Color.Gray,
+                fontSize = 13.sp
+            )
 
-                    PdfToolCard(
+            Spacer(modifier = Modifier.height(16.dp))
+
+            Column(modifier = Modifier.padding(horizontal = 16.dp)) {
+
+                Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+
+                    ToolCard(
                         modifier = Modifier.weight(1f),
-                        icon = Icons.Default.SwapHoriz,
-                        label = "Convert",
-                        iconBg = IconBgOrange,
-                        iconColor = OrangeAccent,
-                        onClick = { onNavigateToSelectFiles(PdfOperation.CONVERT) }
-                    )
+                        title = "Compress PDF",
+                        color = Color(0xFFFF7043),
+                        icon = Icons.Default.Compress
+                    ) { onNavigateToSelectFiles(PdfOperation.COMPRESS) }
+
+                    ToolCard(
+                        modifier = Modifier.weight(1f),
+                        title = "Convert PDF",
+                        color = Color(0xFF7E57C2),
+                        icon = Icons.Default.SwapHoriz
+                    ) { onNavigateToSelectFiles(PdfOperation.CONVERT) }
                 }
 
                 Spacer(modifier = Modifier.height(12.dp))
 
-                Row(
-                    horizontalArrangement = Arrangement.spacedBy(12.dp)
-                ) {
-                    PdfToolCard(
-                        modifier = Modifier.weight(1f),
-                        icon = Icons.Default.MergeType,
-                        label = "Merge",
-                        iconBg = IconBgGreen,
-                        iconColor = GreenAccent,
-                        onClick = { onNavigateToSelectFiles(PdfOperation.MERGE) }
-                    )
+                Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
 
-                    PdfToolCard(
+                    ToolCard(
                         modifier = Modifier.weight(1f),
-                        icon = Icons.Default.ContentCut,
-                        label = "Split",
-                        iconBg = Color(0x261565C0),
-                        iconColor = BlueLight,
-                        onClick = { onNavigateToSelectFiles(PdfOperation.SPLIT) }
-                    )
+                        title = "Merge PDF",
+                        color = Color(0xFF4CAF50),
+                        icon = Icons.Default.MergeType
+                    ) { onNavigateToSelectFiles(PdfOperation.MERGE) }
+
+                    ToolCard(
+                        modifier = Modifier.weight(1f),
+                        title = "Split PDF",
+                        color = Color(0xFF29B6F6),
+                        icon = Icons.Default.ContentCut
+                    ) { onNavigateToSelectFiles(PdfOperation.SPLIT) }
                 }
-
-                Spacer(modifier = Modifier.height(28.dp))
-
-                // 🔥 FOOTER (Cleaner US Style)
-                Text(
-                    text = "Your files are processed securely and automatically deleted after use.",
-                    style = MaterialTheme.typography.bodySmall,
-                    color = TextHint,
-                    textAlign = TextAlign.Center,
-                    modifier = Modifier.fillMaxWidth()
-                )
-
-                Spacer(modifier = Modifier.height(24.dp))
             }
+
+            Spacer(modifier = Modifier.height(20.dp))
+
+            Text(
+                "Secure • No signup required • Files deleted after processing",
+                modifier = Modifier.align(Alignment.CenterHorizontally),
+                fontSize = 12.sp,
+                color = Color.Gray
+            )
         }
     }
 }
 
-
 @Composable
-fun PdfToolCard(
-    modifier: Modifier = Modifier,
+fun ToolCard(
+    modifier: Modifier,
+    title: String,
+    color: Color,
     icon: ImageVector,
-    label: String,
-    iconBg: Color,
-    iconColor: Color,
     onClick: () -> Unit
 ) {
-    var pressed by remember { mutableStateOf(false) }
-
-    val scale by animateFloatAsState(
-        targetValue = if (pressed) 0.96f else 1f,
-        animationSpec = spring(stiffness = Spring.StiffnessMediumLow),
-        label = "card_scale"
-    )
 
     Card(
         modifier = modifier
-            .aspectRatio(1f)
-            .graphicsLayer {
-                scaleX = scale
-                scaleY = scale
-            }
+            .height(120.dp)
             .clickable(
                 interactionSource = remember { MutableInteractionSource() },
                 indication = LocalIndication.current
-            ) {
-                pressed = true
-                onClick()
-                pressed = false
-            },
-        shape = RoundedCornerShape(20.dp), // 🔥 softer, modern corners
-        colors = CardDefaults.cardColors(
-            containerColor = NavyLight
-        ),
-        elevation = CardDefaults.cardElevation(
-            defaultElevation = 6.dp, // 🔥 slightly premium depth
-            pressedElevation = 2.dp
-        )
+            ) { onClick() },
+        shape = RoundedCornerShape(16.dp),
+        colors = CardDefaults.cardColors(containerColor = Color.White),
+        elevation = CardDefaults.cardElevation(4.dp)
     ) {
+
         Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(horizontal = 16.dp, vertical = 18.dp),
+            modifier = Modifier.fillMaxSize().padding(12.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
 
-            // 🔥 Icon Container (modern SaaS style)
             Box(
                 modifier = Modifier
-                    .size(56.dp)
-                    .clip(RoundedCornerShape(18.dp))
-                    .background(iconBg.copy(alpha = 0.15f)),
+                    .size(42.dp)
+                    .clip(RoundedCornerShape(10.dp))
+                    .background(color.copy(alpha = 0.15f)),
                 contentAlignment = Alignment.Center
             ) {
-                Icon(
-                    imageVector = icon,
-                    contentDescription = label,
-                    tint = iconColor,
-                    modifier = Modifier.size(26.dp)
-                )
+                Icon(icon, contentDescription = null, tint = color)
             }
 
-            Spacer(modifier = Modifier.height(14.dp))
+            Spacer(modifier = Modifier.height(10.dp))
 
             Text(
-                text = label,
-                style = MaterialTheme.typography.bodyMedium,
-                color = TextPrimary,
-                textAlign = TextAlign.Center,
-                fontWeight = FontWeight.Medium, // 🔥 less heavy = more modern
-                fontSize = 14.sp
+                text = title,
+                color=Color.Black,
+                fontSize = 14.sp,
+                fontWeight = FontWeight.Medium
             )
         }
     }

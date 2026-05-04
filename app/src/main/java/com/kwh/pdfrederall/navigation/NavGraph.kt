@@ -11,7 +11,10 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.kwh.pdfrederall.PdfViewModelFactory
 import com.kwh.pdfrederall.data.model.PdfOperation
+import com.kwh.pdfrederall.repositiory.LanguageRepository
+import com.kwh.pdfrederall.repositiory.LanguageViewModelFactory
 import com.kwh.pdfrederall.ui.screens.*
+import com.kwh.pdfrederall.viewmodel.LanguageViewModel
 import com.kwh.pdfrederall.viewmodel.PdfViewModel
 
 @SuppressLint("UnrememberedGetBackStackEntry")
@@ -24,9 +27,9 @@ fun AllPdfNavGraph(navController: NavHostController) {
         factory = PdfViewModelFactory(context.applicationContext)
     )
     val startDestination = if (isFirstLaunch(context)) {
-        Routes.HOME
-    } else {
         Routes.INTRO
+    } else {
+        Routes.HOME
     }
     NavHost(
         navController = navController,
@@ -43,13 +46,41 @@ fun AllPdfNavGraph(navController: NavHostController) {
                 }
             )
         }
+        composable(Routes.LANGUAGE) {
+
+            val context = LocalContext.current
+            val repo = remember { LanguageRepository(context) }
+
+            val viewModel: LanguageViewModel = viewModel(
+                factory = LanguageViewModelFactory(repo)
+            )
+
+            LanguageSelectionScreen(
+                viewModel = viewModel,
+                onContinue = {
+                    setFirstLaunchDone(context)
+
+                    navController.navigate(Routes.HOME) {
+                        popUpTo(Routes.LANGUAGE) { inclusive = true }
+                    }
+                }
+            )
+        }
         composable(Routes.HOME) {
             HomeScreen(
                 onNavigateToSelectFiles = { operation ->
                     viewModel.setOperation(operation)
                     viewModel.clearFiles()
-                    navController.navigate(Routes.selectFiles(operation.name))
+
+                    navController.navigate(
+                        Routes.selectFiles(operation.name)
+                    )
                 }
+            )
+        }
+        composable(Routes.SETTINGS) {
+            SettingsScreen(
+                onBack = { navController.popBackStack() }
             )
         }
 
